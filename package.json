@@ -1,7 +1,8 @@
 {
-  "name": "temp-project",
+  "name": "physics-tutor",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Interactive AP Physics 1 learning platform inspired by Duolingo and Brilliant",
   "type": "module",
   "scripts": {
     "dev": "vite",
