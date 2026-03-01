@@ -1,0 +1,146 @@
+.dashboard-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--primary), #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dashboard-hero p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.units-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.unit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.unit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--unit-color);
+}
+
+.unit-card:hover:not(.unit-locked) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--unit-color);
+}
+
+.unit-locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.unit-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.unit-icon {
+  font-size: 28px;
+}
+
+.unit-number {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.unit-lock {
+  margin-left: auto;
+  font-size: 16px;
+}
+
+.unit-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.unit-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.unit-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.unit-lessons {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.unit-progress-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--unit-color);
+}
+
+.unit-progress-bar {
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.unit-progress-fill {
+  height: 100%;
+  background: var(--unit-color);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.unit-coming-soon {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .units-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-hero h1 {
+    font-size: 1.6rem;
+  }
+}
