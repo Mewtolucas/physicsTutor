@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - claude/physics-learning-platform-XB0Gc
   workflow_dispatch:
 
 permissions:
