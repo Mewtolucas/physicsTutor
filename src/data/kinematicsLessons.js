@@ -6,16 +6,12 @@ export const kinematicsLessons = {
       {
         type: 'explanation',
         title: 'Everything is Relative',
-        content: `Imagine you're sitting on a train. To someone standing on the platform, you're moving at 60 mph. But to the person sitting next to you, you're perfectly still. Who's right? Both are!
-
-**Motion** is the change in an object's position over time — but position depends on your **reference frame**: the point of view from which you observe.`,
+        content: `Imagine you're sitting on a train. To someone standing on the platform, you're moving at 60 mph. But to the person sitting next to you, you're perfectly still. Who's right? Both are!\n\n**Motion** is the change in an object's position over time — but position depends on your **reference frame**: the point of view from which you observe.`,
       },
       {
         type: 'concept',
         title: 'Position and Displacement',
-        content: `**Position (x)** tells you where an object is relative to a chosen origin (reference point). We measure it in meters (m).
-
-**Displacement (Δx)** is the *change* in position — how far and in what direction you've moved from start to finish.`,
+        content: `**Position (x)** tells you where an object is relative to a chosen origin (reference point). We measure it in meters (m).\n\n**Displacement (Δx)** is the *change* in position — how far and in what direction you've moved from start to finish.`,
         formula: 'Δx = x_final − x_initial',
         formulaLabel: 'Displacement',
         misconception: 'Displacement is NOT the same as distance! If you walk 3 m east and then 3 m west, your distance is 6 m but your displacement is 0 m.',
@@ -24,10 +20,7 @@ export const kinematicsLessons = {
         type: 'keyIdea',
         content: 'Displacement is a **vector** — it has both magnitude (size) and direction. Distance is a **scalar** — it only has magnitude.',
       },
-      {
-        type: 'simulation',
-        id: 'motion-intro',
-      },
+      { type: 'simulation', id: 'motion-intro' },
       {
         type: 'summary',
         points: [
@@ -39,31 +32,59 @@ export const kinematicsLessons = {
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'multiple-choice',
+      question: 'A runner jogs 400 m around a circular track and returns to their starting point. What is their displacement?',
+      options: ['400 m', '200 m', '0 m', '800 m'],
+      correctIndex: 2,
+      explanation: 'Displacement measures the change in position from start to finish. Since the runner returned to the starting point, their final position equals their initial position, so Δx = 0 m. Note: the distance traveled is 400 m, but displacement is 0!',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'multiple-choice',
-        question: 'A runner jogs 400 m around a circular track and returns to their starting point. What is their displacement?',
-        options: ['400 m', '200 m', '0 m', '800 m'],
-        correctIndex: 2,
-        explanation: 'Displacement measures the change in position from start to finish. Since the runner returned to the starting point, their final position equals their initial position, so Δx = 0 m. Note: the distance traveled is 400 m, but displacement is 0!',
-        xp: 10,
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: "A cat walks 5 m right from the origin, then 8 m left. What is the cat's displacement? (negative for left)", answer: '-3', tolerance: 0, unit: 'm', explanation: 'Starting at 0, goes to +5, then 8 left to −3. Displacement = −3 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'Which of the following is a vector quantity?', options: ['Speed', 'Distance', 'Displacement', 'Time'], correctIndex: 2, explanation: 'Displacement has both magnitude and direction, making it a vector.', xp: 10 },
+          { type: 'fill-in', question: 'A toy car rolls 12 m right, then 4 m left. What is its displacement?', answer: '8', tolerance: 0, unit: 'm', explanation: 'Starts at 0, goes to +12, back to +8. Displacement = 8 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'A hiker walks 5 km north then 5 km south. Which is true?', options: ['Distance 0, displacement 10 km', 'Distance 10 km, displacement 0', 'Both are 10 km', 'Both are 0'], correctIndex: 1, explanation: 'Distance = total path = 10 km. Displacement = change in position = 0 (returned to start).', xp: 10 },
+          { type: 'fill-in', question: 'An ant moves from x = 2 m to x = 9 m. What is the displacement?', answer: '7', tolerance: 0, unit: 'm', explanation: 'Δx = 9 − 2 = 7 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'Distance is always:', options: ['Negative', 'Zero', 'Positive or zero', 'Equal to displacement'], correctIndex: 2, explanation: 'Distance is a scalar measuring total path length — it can never be negative.', xp: 10 },
+          { type: 'fill-in', question: 'A ball rolls from x = 0 to x = 6 m, then back to x = 2 m. What is the displacement?', answer: '2', tolerance: 0, unit: 'm', explanation: 'Δx = final − initial = 2 − 0 = 2 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'What does displacement measure?', options: ['Total path length', 'Change in position from start to finish', 'How fast you moved', 'Time of travel'], correctIndex: 1, explanation: 'Displacement is the change in position (final − initial), including direction.', xp: 10 },
+        ],
       },
       {
-        type: 'fill-in',
-        question: 'A cat walks 5 m to the right from the origin, then 8 m to the left. What is the cat\'s displacement in meters? (Use negative for left)',
-        answer: '-3',
-        tolerance: 0,
-        unit: 'm',
-        explanation: 'Starting at 0 m, the cat goes to +5 m, then moves 8 m left to −3 m. Displacement = −3 m − 0 m = −3 m.',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A student walks 7 m east, then 10 m west. What is the displacement? (negative for west)', answer: '-3', tolerance: 0, unit: 'm', explanation: 'Δx = 7 + (−10) = −3 m (3 m west).', xp: 15 },
+          { type: 'fill-in', question: 'An object moves from x = 3 m to x = −5 m. What is its displacement?', answer: '-8', tolerance: 0, unit: 'm', explanation: 'Δx = −5 − 3 = −8 m.', xp: 15 },
+          { type: 'fill-in', question: 'A car drives 20 km north, 5 km south, then 10 km north. What is the net displacement in km?', answer: '25', tolerance: 0, unit: 'km', explanation: '20 − 5 + 10 = 25 km north.', xp: 15 },
+          { type: 'multiple-choice', question: 'Can displacement ever be larger than distance?', options: ['Yes, always', 'No, never', 'Only if moving in one direction', 'Only for vectors'], correctIndex: 1, explanation: 'Distance accounts for every meter traveled. Displacement is the straight-line result, which can only be ≤ distance.', xp: 15 },
+          { type: 'fill-in', question: 'An ant crawls from x = −2 m to x = 6 m. What is the displacement?', answer: '8', tolerance: 0, unit: 'm', explanation: 'Δx = 6 − (−2) = 8 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'A swimmer does 4 laps of a 50 m pool (each lap goes one way). What is the displacement?', options: ['200 m', '100 m', '0 m', '50 m'], correctIndex: 2, explanation: '4 laps = 2 round trips. Ending where they started means displacement = 0.', xp: 15 },
+          { type: 'fill-in', question: 'An object at x = −4 m moves to x = −9 m. Displacement?', answer: '-5', tolerance: 0, unit: 'm', explanation: 'Δx = −9 − (−4) = −5 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'Two cars start at the same spot. Car A drives 10 km east; Car B drives 10 km west. What is the displacement between them?', options: ['0 km', '10 km', '20 km', '−10 km'], correctIndex: 2, explanation: 'Car A is at +10, Car B at −10. Distance between = 20 km.', xp: 15 },
+        ],
       },
       {
-        type: 'multiple-choice',
-        question: 'Which of the following is a vector quantity?',
-        options: ['Speed', 'Distance', 'Displacement', 'Time'],
-        correctIndex: 2,
-        explanation: 'Displacement is a vector because it has both magnitude and direction. Speed, distance, and time are all scalar quantities — they only have magnitude.',
-        xp: 10,
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A drone flies 30 m east, 40 m north, then 30 m west. What is the magnitude of its displacement?', answer: '40', tolerance: 0, unit: 'm', explanation: 'East-west cancels (30 − 30 = 0). Only 40 m north remains. Displacement magnitude = 40 m.', xp: 20 },
+          { type: 'fill-in', question: 'A ball moves: +8 m, −3 m, +5 m, −12 m. What is the final displacement from the origin?', answer: '-2', tolerance: 0, unit: 'm', explanation: '8 − 3 + 5 − 12 = −2 m.', xp: 20 },
+          { type: 'multiple-choice', question: 'An object has a displacement of −5 m and travels a distance of 13 m. Which is possible?', options: ['Moved 4 m right then 9 m left', 'Moved 5 m left only', 'Moved 13 m right', 'Moved 9 m right then 4 m left'], correctIndex: 0, explanation: '4 right then 9 left: distance = 13 m, displacement = 4 − 9 = −5 m. Both conditions met.', xp: 20 },
+          { type: 'fill-in', question: 'A person walks 3 equal-length blocks east, then 1 block north, then 3 blocks west. If each block is 100 m, what is the displacement magnitude?', answer: '100', tolerance: 0, unit: 'm', explanation: 'East-west cancel (3 − 3 = 0). Left with 1 block north = 100 m.', xp: 20 },
+          { type: 'multiple-choice', question: 'For which trip is displacement equal to distance?', options: ['Walking in a circle', 'Driving to school and back', 'Running straight east without stopping', 'Pacing back and forth'], correctIndex: 2, explanation: 'Displacement equals distance only when moving in a straight line without reversing direction.', xp: 20 },
+          { type: 'fill-in', question: 'An elevator goes up 5 floors, down 2, up 8, down 11. Each floor is 3 m. What is the displacement?', answer: '0', tolerance: 0, unit: 'm', explanation: '5 − 2 + 8 − 11 = 0 floors. Displacement = 0 m (back to start).', xp: 20 },
+          { type: 'multiple-choice', question: 'Object A has displacement +10 m and Object B has displacement −10 m. Which traveled farther?', options: ['A', 'B', 'Same displacement magnitude so same distance', 'Cannot determine without more info'], correctIndex: 3, explanation: 'Same displacement magnitude does not mean same distance. A could have gone straight; B could have zigzagged.', xp: 20 },
+          { type: 'fill-in', question: 'A car drives 50 km east, then 120 km west. What is the total distance traveled?', answer: '170', tolerance: 0, unit: 'km', explanation: 'Distance = total path = 50 + 120 = 170 km. (Displacement would be −70 km.)', xp: 20 },
+        ],
       },
     ],
   },
@@ -75,18 +96,12 @@ export const kinematicsLessons = {
       {
         type: 'explanation',
         title: 'How Fast and Which Way?',
-        content: `Now that we know about displacement, let's talk about how quickly things move.
-
-**Velocity** tells you how fast an object's position is changing and in what direction. It's the rate of change of displacement.
-
-There's an important difference between **speed** and **velocity**:
-- **Speed** = how fast (scalar, always positive)
-- **Velocity** = how fast *and* in what direction (vector, can be negative)`,
+        content: `Now that we know about displacement, let's talk about how quickly things move.\n\n**Velocity** tells you how fast an object's position is changing and in what direction. It's the rate of change of displacement.\n\nThere's an important difference between **speed** and **velocity**:\n- **Speed** = how fast (scalar, always positive)\n- **Velocity** = how fast *and* in what direction (vector, can be negative)`,
       },
       {
         type: 'concept',
         title: 'Average Velocity',
-        content: `**Average velocity** is the total displacement divided by the total time. It tells you the overall rate of position change during a trip.`,
+        content: '**Average velocity** is the total displacement divided by the total time. It tells you the overall rate of position change during a trip.',
         formula: 'v_avg = Δx / Δt = (x_final − x_initial) / (t_final − t_initial)',
         formulaLabel: 'Average Velocity',
         misconception: 'Average velocity is NOT always the same as average speed! A round trip has zero average velocity (displacement = 0) but nonzero average speed.',
@@ -94,9 +109,7 @@ There's an important difference between **speed** and **velocity**:
       {
         type: 'concept',
         title: 'Instantaneous Velocity',
-        content: `**Instantaneous velocity** is the velocity at a single moment in time — like what your speedometer reads right now.
-
-Mathematically, it's the limit of average velocity as the time interval approaches zero. On a position-time graph, it equals the **slope** of the tangent line at that point.`,
+        content: `**Instantaneous velocity** is the velocity at a single moment in time — like what your speedometer reads right now.\n\nMathematically, it's the limit of average velocity as the time interval approaches zero. On a position-time graph, it equals the **slope** of the tangent line at that point.`,
         formula: 'v = lim(Δt→0) Δx/Δt',
         formulaLabel: 'Instantaneous Velocity',
       },
@@ -104,10 +117,7 @@ Mathematically, it's the limit of average velocity as the time interval approach
         type: 'keyIdea',
         content: 'On a **position-time graph**, the slope gives you velocity. A steeper slope = faster motion. A horizontal line = at rest. A negative slope = moving in the negative direction.',
       },
-      {
-        type: 'simulation',
-        id: 'velocity-basics',
-      },
+      { type: 'simulation', id: 'velocity-basics' },
       {
         type: 'summary',
         points: [
@@ -119,36 +129,60 @@ Mathematically, it's the limit of average velocity as the time interval approach
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A car travels 150 m east in 10 seconds. What is its average velocity in m/s?',
+      answer: '15',
+      tolerance: 0,
+      unit: 'm/s',
+      explanation: 'Average velocity = Δx / Δt = 150 m / 10 s = 15 m/s east.',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A car travels 150 m east in 10 seconds. What is its average velocity in m/s?',
-        answer: '15',
-        tolerance: 0,
-        unit: 'm/s',
-        explanation: 'Average velocity = Δx / Δt = 150 m / 10 s = 15 m/s east.',
-        xp: 10,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'A student walks 100 m north in 50 s, then 100 m south in 50 s, returning to start. What is their average velocity?',
-        options: ['2 m/s', '1 m/s', '0 m/s', '4 m/s'],
-        correctIndex: 2,
-        explanation: 'Total displacement = 0 m (returned to start). Average velocity = 0 m / 100 s = 0 m/s. Note: average speed would be 200 m / 100 s = 2 m/s.',
-        xp: 10,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'On a position-time graph, what does a steeper positive slope indicate?',
-        options: [
-          'The object is slowing down',
-          'The object has greater positive velocity',
-          'The object is accelerating',
-          'The object is at rest',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: 'A cyclist covers 240 m in 12 s. What is the average velocity?', answer: '20', tolerance: 0, unit: 'm/s', explanation: 'v = 240/12 = 20 m/s.', xp: 10 },
+          { type: 'fill-in', question: 'A runner completes 100 m in 12.5 s. Average velocity?', answer: '8', tolerance: 0, unit: 'm/s', explanation: 'v = 100/12.5 = 8 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'Speed is different from velocity because speed:', options: ['Has direction', 'Is always zero', 'Has no direction (scalar)', 'Is measured in m/s²'], correctIndex: 2, explanation: 'Speed is a scalar (magnitude only). Velocity is a vector (magnitude + direction).', xp: 10 },
+          { type: 'fill-in', question: 'A train travels 500 m in 25 s. Average velocity?', answer: '20', tolerance: 0, unit: 'm/s', explanation: 'v = 500/25 = 20 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'What are the units of velocity?', options: ['m', 'm/s', 'm/s²', 'kg'], correctIndex: 1, explanation: 'Velocity = displacement/time = meters/seconds = m/s.', xp: 10 },
+          { type: 'fill-in', question: 'A plane flies 900 km in 3 hours. Average velocity in km/h?', answer: '300', tolerance: 0, unit: 'km/h', explanation: 'v = 900/3 = 300 km/h.', xp: 10 },
+          { type: 'multiple-choice', question: 'An object with negative velocity is:', options: ['Slowing down', 'Moving in the negative direction', 'At rest', 'Accelerating'], correctIndex: 1, explanation: 'Negative velocity means moving in the negative direction. It says nothing about speeding up or slowing down.', xp: 10 },
+          { type: 'fill-in', question: 'A snail moves 0.5 m in 10 s. Average velocity?', answer: '0.05', tolerance: 0.001, unit: 'm/s', explanation: 'v = 0.5/10 = 0.05 m/s.', xp: 10 },
         ],
-        correctIndex: 1,
-        explanation: 'The slope of a position-time graph equals velocity. A steeper positive slope means a larger positive velocity — the object is moving faster in the positive direction.',
-        xp: 10,
+      },
+      {
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'multiple-choice', question: 'A student walks 100 m north in 50 s, then 100 m south in 50 s. Average velocity?', options: ['2 m/s', '1 m/s', '0 m/s', '4 m/s'], correctIndex: 2, explanation: 'Displacement = 0 (returned to start). v_avg = 0/100 = 0 m/s.', xp: 15 },
+          { type: 'fill-in', question: 'A car goes 60 m east in 4 s, then 20 m west in 2 s. Average velocity for the whole trip?', answer: '6.67', tolerance: 0.1, unit: 'm/s', explanation: 'Displacement = 60 − 20 = 40 m. Time = 6 s. v = 40/6 ≈ 6.67 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'On a position-time graph, a steeper positive slope means:', options: ['Slower speed', 'Greater positive velocity', 'Object is accelerating', 'Object is at rest'], correctIndex: 1, explanation: 'Slope of x-t graph = velocity. Steeper positive slope = larger positive velocity.', xp: 15 },
+          { type: 'multiple-choice', question: 'Average speed for a round trip is 4 m/s. Average velocity is:', options: ['4 m/s', '2 m/s', '0 m/s', '8 m/s'], correctIndex: 2, explanation: 'Round trip means displacement = 0, so average velocity = 0 regardless of speed.', xp: 15 },
+          { type: 'fill-in', question: 'An object moves 80 m north in 20 s, then 30 m south in 10 s. Average velocity?', answer: '1.67', tolerance: 0.1, unit: 'm/s', explanation: 'Displacement = 80 − 30 = 50 m. Time = 30 s. v = 50/30 ≈ 1.67 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'On a position-time graph, a horizontal line means:', options: ['Constant velocity', 'Accelerating', 'At rest', 'Negative velocity'], correctIndex: 2, explanation: 'Horizontal = zero slope = zero velocity = at rest.', xp: 15 },
+          { type: 'fill-in', question: 'A bus travels 45 km in 1.5 hours. Average speed in km/h?', answer: '30', tolerance: 0, unit: 'km/h', explanation: 'Speed = 45/1.5 = 30 km/h.', xp: 15 },
+          { type: 'multiple-choice', question: 'Two objects on a p-t graph: A has steeper slope than B. Which is true?', options: ['A has greater acceleration', 'A has greater velocity', 'B is faster', 'A has zero velocity'], correctIndex: 1, explanation: 'Steeper slope = greater velocity on a position-time graph.', xp: 15 },
+        ],
+      },
+      {
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A car drives 120 km at 60 km/h, then 120 km at 40 km/h. What is the average speed for the whole trip? (km/h)', answer: '48', tolerance: 0, unit: 'km/h', explanation: 'Time 1 = 120/60 = 2 h. Time 2 = 120/40 = 3 h. Avg speed = 240/5 = 48 km/h.', xp: 20 },
+          { type: 'multiple-choice', question: 'An object has zero average velocity over 10 s. This means:', options: ['It never moved', 'It ended where it started', 'Its speed was always zero', 'It had constant velocity'], correctIndex: 1, explanation: 'Zero average velocity means net displacement = 0. It could have moved around and returned.', xp: 20 },
+          { type: 'fill-in', question: 'A swimmer goes 50 m in 25 s, rests 10 s, then swims 30 m in 15 s (same direction). Average velocity?', answer: '1.6', tolerance: 0.01, unit: 'm/s', explanation: 'Displacement = 80 m. Total time = 50 s. v = 80/50 = 1.6 m/s.', xp: 20 },
+          { type: 'multiple-choice', question: 'Can average speed ever equal zero?', options: ['Yes, if displacement is zero', 'Yes, only if the object never moves', 'No, speed is always positive', 'Yes, if velocity is negative'], correctIndex: 1, explanation: 'Average speed = total distance / time. It is zero only if the object literally did not move at all.', xp: 20 },
+          { type: 'fill-in', question: 'A drone flies 100 m east at 10 m/s, then 100 m west at 20 m/s. Average velocity for the trip? (m/s)', answer: '0', tolerance: 0, unit: 'm/s', explanation: 'Displacement = 0 (round trip). Average velocity = 0 m/s.', xp: 20 },
+          { type: 'fill-in', question: 'Same drone as above — what is the average SPEED? (m/s, round to 1 decimal)', answer: '13.3', tolerance: 0.1, unit: 'm/s', explanation: 'Time east = 10 s, time west = 5 s. Avg speed = 200/15 ≈ 13.3 m/s.', xp: 20 },
+          { type: 'multiple-choice', question: 'An object moves at +5 m/s for 4 s, then −5 m/s for 4 s. What is the average speed?', options: ['0 m/s', '2.5 m/s', '5 m/s', '10 m/s'], correctIndex: 2, explanation: 'Total distance = 20 + 20 = 40 m. Total time = 8 s. Average speed = 40/8 = 5 m/s.', xp: 20 },
+          { type: 'fill-in', question: 'An object moves 200 m at 25 m/s, then 200 m at 50 m/s. Average speed for the trip? (m/s, round to 1 decimal)', answer: '33.3', tolerance: 0.1, unit: 'm/s', explanation: 'Time 1 = 8 s, Time 2 = 4 s. Avg = 400/12 ≈ 33.3 m/s.', xp: 20 },
+        ],
       },
     ],
   },
@@ -160,16 +194,12 @@ Mathematically, it's the limit of average velocity as the time interval approach
       {
         type: 'explanation',
         title: 'Changing Velocity',
-        content: `You're in a car at a red light. The light turns green, and you press the gas pedal. You feel pushed back into your seat. What's happening?
-
-Your velocity is changing — you're **accelerating**.
-
-**Acceleration** is the rate of change of velocity. Just as velocity tells you how position changes, acceleration tells you how velocity changes.`,
+        content: `You're in a car at a red light. The light turns green, and you press the gas pedal. You feel pushed back into your seat. What's happening?\n\nYour velocity is changing — you're **accelerating**.\n\n**Acceleration** is the rate of change of velocity. Just as velocity tells you how position changes, acceleration tells you how velocity changes.`,
       },
       {
         type: 'concept',
         title: 'Defining Acceleration',
-        content: `Acceleration measures how quickly velocity changes over time. Like velocity, it's a **vector** — it has magnitude and direction.`,
+        content: "Acceleration measures how quickly velocity changes over time. Like velocity, it's a **vector** — it has magnitude and direction.",
         formula: 'a = Δv / Δt = (v_final − v_initial) / (t_final − t_initial)',
         formulaLabel: 'Average Acceleration',
         misconception: 'Negative acceleration does NOT always mean slowing down! A car moving in the negative direction with negative acceleration is actually speeding up. What matters is whether acceleration is in the same or opposite direction as velocity.',
@@ -177,20 +207,13 @@ Your velocity is changing — you're **accelerating**.
       {
         type: 'concept',
         title: 'Speeding Up vs Slowing Down',
-        content: `Here's the key rule:
-- **Speeding up**: velocity and acceleration point in the **same direction**
-- **Slowing down** (decelerating): velocity and acceleration point in **opposite directions**
-
-For example, if a car moving east (positive) has a westward (negative) acceleration, it's slowing down.`,
+        content: "Here's the key rule:\n- **Speeding up**: velocity and acceleration point in the **same direction**\n- **Slowing down** (decelerating): velocity and acceleration point in **opposite directions**\n\nFor example, if a car moving east (positive) has a westward (negative) acceleration, it's slowing down.",
       },
       {
         type: 'keyIdea',
         content: 'On a **velocity-time graph**, the slope gives you acceleration. Constant acceleration = straight line. Zero acceleration = horizontal line (constant velocity).',
       },
-      {
-        type: 'simulation',
-        id: 'acceleration-sim',
-      },
+      { type: 'simulation', id: 'acceleration-sim' },
       {
         type: 'summary',
         points: [
@@ -203,40 +226,60 @@ For example, if a car moving east (positive) has a westward (negative) accelerat
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A bike speeds up from 2 m/s to 8 m/s in 3 seconds. What is the acceleration in m/s²?',
+      answer: '2',
+      tolerance: 0,
+      unit: 'm/s²',
+      explanation: 'a = Δv / Δt = (8 − 2) / 3 = 6/3 = 2 m/s².',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A bike speeds up from 2 m/s to 8 m/s in 3 seconds. What is the acceleration in m/s²?',
-        answer: '2',
-        tolerance: 0,
-        unit: 'm/s²',
-        explanation: 'a = Δv / Δt = (8 − 2) / 3 = 6/3 = 2 m/s².',
-        xp: 10,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'A car is moving to the right with a leftward acceleration. The car is:',
-        options: [
-          'Speeding up to the right',
-          'Slowing down (decelerating)',
-          'Moving to the left',
-          'At rest',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: 'A car goes from 0 to 20 m/s in 10 s. Acceleration?', answer: '2', tolerance: 0, unit: 'm/s²', explanation: 'a = 20/10 = 2 m/s².', xp: 10 },
+          { type: 'fill-in', question: 'A train accelerates from 10 m/s to 30 m/s in 5 s. Acceleration?', answer: '4', tolerance: 0, unit: 'm/s²', explanation: 'a = (30−10)/5 = 4 m/s².', xp: 10 },
+          { type: 'multiple-choice', question: 'What are the units of acceleration?', options: ['m/s', 'm/s²', 'm', 's²'], correctIndex: 1, explanation: 'Acceleration = Δv/Δt = (m/s)/s = m/s².', xp: 10 },
+          { type: 'multiple-choice', question: 'An object with zero acceleration is:', options: ['At rest', 'Moving at constant velocity', 'Either at rest OR moving at constant velocity', 'Impossible'], correctIndex: 2, explanation: 'Zero acceleration means velocity is not changing — could be zero (at rest) or any constant value.', xp: 10 },
+          { type: 'fill-in', question: 'A skateboard goes from 0 to 6 m/s in 3 s. Acceleration?', answer: '2', tolerance: 0, unit: 'm/s²', explanation: 'a = 6/3 = 2 m/s².', xp: 10 },
+          { type: 'fill-in', question: 'A ball speeds up from 5 m/s to 15 m/s in 2 s. Acceleration?', answer: '5', tolerance: 0, unit: 'm/s²', explanation: 'a = (15−5)/2 = 5 m/s².', xp: 10 },
+          { type: 'multiple-choice', question: 'Acceleration is a:', options: ['Scalar', 'Vector', 'Unit', 'Constant'], correctIndex: 1, explanation: 'Acceleration has both magnitude and direction — it is a vector.', xp: 10 },
+          { type: 'fill-in', question: 'A rocket goes from 0 to 100 m/s in 20 s. Acceleration?', answer: '5', tolerance: 0, unit: 'm/s²', explanation: 'a = 100/20 = 5 m/s².', xp: 10 },
         ],
-        correctIndex: 1,
-        explanation: 'When velocity and acceleration point in opposite directions, the object is slowing down. The car moves right but accelerates left, so it decelerates.',
-        xp: 10,
       },
       {
-        type: 'slider-predict',
-        question: 'A ball starts at rest and accelerates at 3 m/s². Use the slider to predict its velocity after 4 seconds.',
-        sliderMin: 0,
-        sliderMax: 20,
-        sliderStep: 1,
-        unit: 'm/s',
-        answer: 12,
-        tolerance: 1,
-        explanation: 'v = v₀ + at = 0 + 3(4) = 12 m/s',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'multiple-choice', question: 'A car moves right with leftward acceleration. It is:', options: ['Speeding up to the right', 'Slowing down', 'Moving left', 'At rest'], correctIndex: 1, explanation: 'Velocity and acceleration in opposite directions = slowing down.', xp: 15 },
+          { type: 'multiple-choice', question: 'An object moves left with leftward acceleration. It is:', options: ['Slowing down', 'At rest', 'Speeding up', 'Changing direction'], correctIndex: 2, explanation: 'Same direction for v and a = speeding up.', xp: 15 },
+          { type: 'fill-in', question: 'A car decelerates from 20 m/s to 5 m/s in 5 s. Acceleration?', answer: '-3', tolerance: 0, unit: 'm/s²', explanation: 'a = (5−20)/5 = −3 m/s².', xp: 15 },
+          { type: 'slider-predict', question: 'A ball starts at rest and accelerates at 3 m/s² for 4 s. Predict the velocity.', sliderMin: 0, sliderMax: 20, sliderStep: 1, unit: 'm/s', answer: 12, tolerance: 1, explanation: 'v = 0 + 3(4) = 12 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'A ball rolls east and slows down. Acceleration direction?', options: ['East', 'West', 'Up', 'No acceleration'], correctIndex: 1, explanation: 'Slowing down = acceleration opposite to velocity. v is east, so a is west.', xp: 15 },
+          { type: 'fill-in', question: 'A runner goes from 8 m/s to 2 m/s in 3 s. Acceleration?', answer: '-2', tolerance: 0, unit: 'm/s²', explanation: 'a = (2−8)/3 = −2 m/s².', xp: 15 },
+          { type: 'slider-predict', question: 'A skateboard from rest accelerates at 2 m/s² for 5 s. Predict velocity.', sliderMin: 0, sliderMax: 20, sliderStep: 1, unit: 'm/s', answer: 10, tolerance: 1, explanation: 'v = 0 + 2(5) = 10 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'Negative acceleration always means the object is:', options: ['Slowing down', 'Speeding up', 'Moving in the negative direction', 'Accelerating in the negative direction'], correctIndex: 3, explanation: 'Negative acceleration = acceleration in the negative direction. Whether the object speeds up or slows depends on velocity direction.', xp: 15 },
+        ],
+      },
+      {
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A car at −15 m/s accelerates at +3 m/s² for 10 s. Final velocity?', answer: '15', tolerance: 0, unit: 'm/s', explanation: 'v = −15 + 3(10) = 15 m/s. It reversed direction!', xp: 20 },
+          { type: 'multiple-choice', question: 'An object at −10 m/s has acceleration −2 m/s². It is:', options: ['Slowing down', 'Speeding up in the negative direction', 'Changing direction', 'At rest'], correctIndex: 1, explanation: 'Both v and a are negative (same direction) → speeding up in the negative direction.', xp: 20 },
+          { type: 'fill-in', question: 'An object at 25 m/s decelerates at 5 m/s². How long until it stops?', answer: '5', tolerance: 0, unit: 's', explanation: '0 = 25 − 5t → t = 5 s.', xp: 20 },
+          { type: 'fill-in', question: 'A ball at +12 m/s accelerates at −4 m/s². When does it reverse direction?', answer: '3', tolerance: 0, unit: 's', explanation: 'Reverses when v = 0: 0 = 12 − 4t → t = 3 s.', xp: 20 },
+          { type: 'multiple-choice', question: 'A ball thrown up has v = +5 m/s and a = −10 m/s². In 1 second it will:', options: ['Be moving at +15 m/s', 'Be moving at −5 m/s', 'Be at rest', 'Still be moving up at +5 m/s'], correctIndex: 1, explanation: 'v = 5 + (−10)(1) = −5 m/s. It reversed and moves downward.', xp: 20 },
+          { type: 'fill-in', question: 'A car at 30 m/s brakes at −6 m/s² for 3 s. What velocity?', answer: '12', tolerance: 0, unit: 'm/s', explanation: 'v = 30 + (−6)(3) = 12 m/s.', xp: 20 },
+          { type: 'fill-in', question: 'An object goes from −8 m/s to +4 m/s in 6 s. Acceleration?', answer: '2', tolerance: 0, unit: 'm/s²', explanation: 'a = (4 − (−8))/6 = 12/6 = 2 m/s².', xp: 20 },
+          { type: 'multiple-choice', question: 'An object with v > 0 and a < 0 will eventually:', options: ['Speed up forever', 'Slow down, stop, then reverse', 'Stay at constant velocity', 'Immediately reverse'], correctIndex: 1, explanation: 'Opposite v and a means deceleration. Eventually v reaches 0, then goes negative (reverses).', xp: 20 },
+        ],
       },
     ],
   },
@@ -248,24 +291,12 @@ For example, if a car moving east (positive) has a westward (negative) accelerat
       {
         type: 'explanation',
         title: 'The Big Four',
-        content: `When acceleration is **constant**, we can use four powerful equations to relate position, velocity, acceleration, and time. These are your essential tools for solving kinematics problems.
-
-Each equation connects different combinations of five variables: x (displacement), v₀ (initial velocity), v (final velocity), a (acceleration), and t (time).`,
+        content: `When acceleration is **constant**, we can use four powerful equations to relate position, velocity, acceleration, and time. These are your essential tools for solving kinematics problems.\n\nEach equation connects different combinations of five variables: x (displacement), v₀ (initial velocity), v (final velocity), a (acceleration), and t (time).`,
       },
       {
         type: 'concept',
         title: 'The Four Kinematic Equations',
-        content: `**Equation 1:** v = v₀ + at
-*(Relates velocity, acceleration, and time — no displacement)*
-
-**Equation 2:** x = v₀t + ½at²
-*(Relates displacement, initial velocity, acceleration, and time — no final velocity)*
-
-**Equation 3:** v² = v₀² + 2ax
-*(Relates velocities, acceleration, and displacement — no time)*
-
-**Equation 4:** x = ½(v₀ + v)t
-*(Relates displacement, both velocities, and time — no acceleration)*`,
+        content: `**Equation 1:** v = v₀ + at\n*(Relates velocity, acceleration, and time — no displacement)*\n\n**Equation 2:** x = v₀t + ½at²\n*(Relates displacement, initial velocity, acceleration, and time — no final velocity)*\n\n**Equation 3:** v² = v₀² + 2ax\n*(Relates velocities, acceleration, and displacement — no time)*\n\n**Equation 4:** x = ½(v₀ + v)t\n*(Relates displacement, both velocities, and time — no acceleration)*`,
         formula: 'v = v₀ + at\nx = v₀t + ½at²\nv² = v₀² + 2ax\nx = ½(v₀ + v)t',
         formulaLabel: 'Kinematic Equations (constant acceleration)',
         misconception: 'These equations ONLY work when acceleration is constant! If acceleration is changing, you need calculus or different approaches.',
@@ -273,17 +304,9 @@ Each equation connects different combinations of five variables: x (displacement
       {
         type: 'concept',
         title: 'Problem-Solving Strategy',
-        content: `1. **Identify** the known and unknown variables
-2. **Choose** the equation that has all your knowns and the one unknown
-3. **Substitute** values (watch units and signs!)
-4. **Solve** algebraically
-
-Pro tip: List your five variables (x, v₀, v, a, t) and mark which three you know. Then pick the equation that uses those three to find the fourth.`,
+        content: "1. **Identify** the known and unknown variables\n2. **Choose** the equation that has all your knowns and the one unknown\n3. **Substitute** values (watch units and signs!)\n4. **Solve** algebraically\n\nPro tip: List your five variables (x, v₀, v, a, t) and mark which three you know. Then pick the equation that uses those three to find the fourth.",
       },
-      {
-        type: 'simulation',
-        id: 'kinematic-equations',
-      },
+      { type: 'simulation', id: 'kinematic-equations' },
       {
         type: 'summary',
         points: [
@@ -295,37 +318,60 @@ Pro tip: List your five variables (x, v₀, v, a, t) and mark which three you kn
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A car accelerates from rest at 4 m/s² for 5 seconds. How far does it travel? (in meters)',
+      answer: '50',
+      tolerance: 0,
+      unit: 'm',
+      explanation: 'Using x = v₀t + ½at²: x = 0(5) + ½(4)(5²) = ½(4)(25) = 50 m.',
+      xp: 15,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A car accelerates from rest at 4 m/s² for 5 seconds. How far does it travel? (in meters)',
-        answer: '50',
-        tolerance: 0,
-        unit: 'm',
-        explanation: 'Using x = v₀t + ½at²: x = 0(5) + ½(4)(5²) = ½(4)(25) = 50 m.',
-        xp: 15,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'You know initial velocity, acceleration, and displacement. Which kinematic equation should you use to find final velocity?',
-        options: [
-          'v = v₀ + at',
-          'x = v₀t + ½at²',
-          'v² = v₀² + 2ax',
-          'x = ½(v₀ + v)t',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: 'A motorcycle starts from rest and accelerates at 3 m/s² for 6 s. Final velocity?', answer: '18', tolerance: 0, unit: 'm/s', explanation: 'v = 0 + 3(6) = 18 m/s.', xp: 10 },
+          { type: 'fill-in', question: 'A sled starts at 2 m/s, accelerates at 4 m/s² for 3 s. Final velocity?', answer: '14', tolerance: 0, unit: 'm/s', explanation: 'v = 2 + 4(3) = 14 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'Which equation has NO time variable?', options: ['v = v₀ + at', 'x = v₀t + ½at²', 'v² = v₀² + 2ax', 'x = ½(v₀ + v)t'], correctIndex: 2, explanation: 'v² = v₀² + 2ax relates velocity, acceleration, and displacement with no time.', xp: 10 },
+          { type: 'fill-in', question: 'A bus from rest accelerates at 2 m/s² for 8 s. Distance traveled?', answer: '64', tolerance: 0, unit: 'm', explanation: 'x = 0 + ½(2)(64) = 64 m.', xp: 10 },
+          { type: 'fill-in', question: 'A car at 10 m/s accelerates at 2 m/s² for 5 s. Final velocity?', answer: '20', tolerance: 0, unit: 'm/s', explanation: 'v = 10 + 2(5) = 20 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'You know v₀, a, and t. Which equation finds displacement?', options: ['v = v₀ + at', 'x = v₀t + ½at²', 'v² = v₀² + 2ax', 'x = ½(v₀ + v)t'], correctIndex: 1, explanation: 'x = v₀t + ½at² uses v₀, a, and t to find x.', xp: 10 },
+          { type: 'fill-in', question: 'A ball from rest accelerates at 5 m/s² for 4 s. How far?', answer: '40', tolerance: 0, unit: 'm', explanation: 'x = ½(5)(16) = 40 m.', xp: 10 },
+          { type: 'fill-in', question: 'A car at 15 m/s accelerates at 3 m/s² for 2 s. Final velocity?', answer: '21', tolerance: 0, unit: 'm/s', explanation: 'v = 15 + 3(2) = 21 m/s.', xp: 10 },
         ],
-        correctIndex: 2,
-        explanation: 'v² = v₀² + 2ax contains v, v₀, a, and x — exactly what you need. It doesn\'t require time, which you don\'t know.',
-        xp: 10,
       },
       {
-        type: 'fill-in',
-        question: 'A train moving at 20 m/s brakes with an acceleration of −2 m/s². How long (in seconds) until it stops?',
-        answer: '10',
-        tolerance: 0,
-        unit: 's',
-        explanation: 'Using v = v₀ + at: 0 = 20 + (−2)t → 2t = 20 → t = 10 s.',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A train at 20 m/s brakes at −2 m/s². How long until it stops?', answer: '10', tolerance: 0, unit: 's', explanation: '0 = 20 − 2t → t = 10 s.', xp: 15 },
+          { type: 'fill-in', question: 'A bus at 15 m/s brakes at −3 m/s². How long to stop?', answer: '5', tolerance: 0, unit: 's', explanation: '0 = 15 − 3t → t = 5 s.', xp: 15 },
+          { type: 'multiple-choice', question: 'You know v₀, v, and x. Which equation finds a?', options: ['v = v₀ + at', 'x = v₀t + ½at²', 'v² = v₀² + 2ax', 'x = ½(v₀ + v)t'], correctIndex: 2, explanation: 'v² = v₀² + 2ax can be rearranged: a = (v² − v₀²)/(2x).', xp: 15 },
+          { type: 'fill-in', question: 'A car from rest reaches 30 m/s over 90 m. What is the acceleration?', answer: '5', tolerance: 0, unit: 'm/s²', explanation: '900 = 0 + 2a(90) → a = 5 m/s².', xp: 15 },
+          { type: 'fill-in', question: 'A car at 30 m/s brakes at −5 m/s². Stopping time?', answer: '6', tolerance: 0, unit: 's', explanation: '0 = 30 − 5t → t = 6 s.', xp: 15 },
+          { type: 'fill-in', question: 'A rocket from rest accelerates at 5 m/s² for 8 s. Distance?', answer: '160', tolerance: 0, unit: 'm', explanation: 'x = ½(5)(64) = 160 m.', xp: 15 },
+          { type: 'fill-in', question: 'A bike at 4 m/s accelerates to 12 m/s over 4 s. Displacement?', answer: '32', tolerance: 0, unit: 'm', explanation: 'x = ½(4+12)(4) = 32 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'Which equation omits acceleration?', options: ['v = v₀ + at', 'x = v₀t + ½at²', 'v² = v₀² + 2ax', 'x = ½(v₀ + v)t'], correctIndex: 3, explanation: 'x = ½(v₀ + v)t uses displacement, both velocities, and time — no a needed.', xp: 15 },
+        ],
+      },
+      {
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'A car at 20 m/s brakes at −4 m/s². What is the stopping distance?', answer: '50', tolerance: 0, unit: 'm', explanation: '0 = 400 − 8x → x = 50 m.', xp: 20 },
+          { type: 'fill-in', question: 'A plane needs to reach 80 m/s to take off, accelerating at 4 m/s². Minimum runway length?', answer: '800', tolerance: 0, unit: 'm', explanation: '6400 = 0 + 2(4)x → x = 800 m.', xp: 20 },
+          { type: 'fill-in', question: 'A car from rest covers 100 m in 10 s. What is the acceleration?', answer: '2', tolerance: 0, unit: 'm/s²', explanation: '100 = 0 + ½a(100) → a = 2 m/s².', xp: 20 },
+          { type: 'fill-in', question: 'A car at 25 m/s brakes to 5 m/s over 60 m. Acceleration?', answer: '-5', tolerance: 0, unit: 'm/s²', explanation: 'v² = v₀² + 2ax → 25 = 625 + 2a(60) → −600 = 120a → a = −5 m/s².', xp: 20 },
+          { type: 'fill-in', question: 'An object at 10 m/s accelerates at 2 m/s². How far in the first 5 s?', answer: '75', tolerance: 0, unit: 'm', explanation: 'x = 10(5) + ½(2)(25) = 50 + 25 = 75 m.', xp: 20 },
+          { type: 'fill-in', question: 'A ball at 1 m/s accelerates at 6 m/s² over 4 m. Final velocity?', answer: '7', tolerance: 0, unit: 'm/s', explanation: 'v² = 1² + 2(6)(4) = 1 + 48 = 49 → v = 7 m/s.', xp: 20 },
+          { type: 'fill-in', question: 'Two cars start from rest 100 m apart, driving toward each other. Car A accelerates at 2 m/s², Car B at 3 m/s². How long until they meet? (round to 1 decimal)', answer: '6.3', tolerance: 0.1, unit: 's', explanation: 'Combined distances: ½(2)t² + ½(3)t² = 100 → 2.5t² = 100 → t² = 40 → t ≈ 6.3 s.', xp: 20 },
+          { type: 'fill-in', question: 'A car at 12 m/s accelerates at 3 m/s² for 4 s. How far?', answer: '72', tolerance: 0, unit: 'm', explanation: 'x = 12(4) + ½(3)(16) = 48 + 24 = 72 m.', xp: 20 },
+        ],
       },
     ],
   },
@@ -337,41 +383,20 @@ Pro tip: List your five variables (x, v₀, v, a, t) and mark which three you kn
       {
         type: 'explanation',
         title: 'Pictures of Motion',
-        content: `Graphs are one of the most powerful tools in physics. A **position-time (x-t) graph** shows you an object's position at every moment — it's like a complete movie of the motion condensed into one picture.
-
-Learning to read these graphs fluently will make kinematics much easier.`,
+        content: `Graphs are one of the most powerful tools in physics. A **position-time (x-t) graph** shows you an object's position at every moment — it's like a complete movie of the motion condensed into one picture.\n\nLearning to read these graphs fluently will make kinematics much easier.`,
       },
       {
         type: 'concept',
         title: 'Reading Position-Time Graphs',
-        content: `On a position-time graph:
-- **Horizontal axis** = time (t)
-- **Vertical axis** = position (x)
-- **Each point** tells you where the object is at that time
-
-Key rules:
-- **Slope = velocity** (rise/run = Δx/Δt)
-- Steeper slope → faster speed
-- Positive slope → moving in positive direction
-- Negative slope → moving in negative direction
-- Horizontal line → at rest (v = 0)
-- Straight line → constant velocity
-- Curved line → changing velocity (acceleration!)`,
-        misconception: 'The shape of a position-time graph does NOT show the path of the object! A curved x-t graph doesn\'t mean the object is moving in a curve — it means the velocity is changing.',
+        content: "On a position-time graph:\n- **Horizontal axis** = time (t)\n- **Vertical axis** = position (x)\n- **Each point** tells you where the object is at that time\n\nKey rules:\n- **Slope = velocity** (rise/run = Δx/Δt)\n- Steeper slope → faster speed\n- Positive slope → moving in positive direction\n- Negative slope → moving in negative direction\n- Horizontal line → at rest (v = 0)\n- Straight line → constant velocity\n- Curved line → changing velocity (acceleration!)",
+        misconception: "The shape of a position-time graph does NOT show the path of the object! A curved x-t graph doesn't mean the object is moving in a curve — it means the velocity is changing.",
       },
       {
         type: 'concept',
         title: 'Curvature and Acceleration',
-        content: `When a position-time graph is curved:
-- **Curving upward** (concave up) → positive acceleration
-- **Curving downward** (concave down) → negative acceleration
-- The curve gets steeper → speeding up
-- The curve gets flatter → slowing down`,
+        content: "When a position-time graph is curved:\n- **Curving upward** (concave up) → positive acceleration\n- **Curving downward** (concave down) → negative acceleration\n- The curve gets steeper → speeding up\n- The curve gets flatter → slowing down",
       },
-      {
-        type: 'simulation',
-        id: 'position-time-graph',
-      },
+      { type: 'simulation', id: 'position-time-graph' },
       {
         type: 'summary',
         points: [
@@ -384,45 +409,59 @@ Key rules:
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'multiple-choice',
+      question: 'On a position-time graph, an object at rest appears as:',
+      options: ['A straight line sloping upward', 'A horizontal line', 'A curved line', 'A vertical line'],
+      correctIndex: 1,
+      explanation: 'At rest means position is not changing — x stays the same at all times, which is a horizontal line.',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'multiple-choice',
-        question: 'On a position-time graph, an object at rest appears as:',
-        options: [
-          'A straight line sloping upward',
-          'A horizontal line',
-          'A curved line',
-          'A vertical line',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'multiple-choice', question: 'A straight line on a p-t graph means:', options: ['Acceleration', 'Constant velocity', 'At rest', 'Changing direction'], correctIndex: 1, explanation: 'Straight line = constant slope = constant velocity.', xp: 10 },
+          { type: 'multiple-choice', question: 'Slope of a position-time graph gives:', options: ['Acceleration', 'Displacement', 'Velocity', 'Distance'], correctIndex: 2, explanation: 'Slope = Δx/Δt = velocity.', xp: 10 },
+          { type: 'multiple-choice', question: 'A negative slope on a p-t graph means:', options: ['Negative acceleration', 'Moving in the negative direction', 'Object is decelerating', 'Object is at rest'], correctIndex: 1, explanation: 'Negative slope = negative velocity = moving in the negative direction.', xp: 10 },
+          { type: 'fill-in', question: 'An object goes from x=0 at t=0 to x=20 m at t=4 s (straight line). Velocity?', answer: '5', tolerance: 0, unit: 'm/s', explanation: 'Slope = 20/4 = 5 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'A curved p-t graph indicates:', options: ['Constant velocity', 'Zero velocity', 'Changing velocity (acceleration)', 'The object moves in a circle'], correctIndex: 2, explanation: 'Curvature means the slope is changing, so velocity is changing = acceleration.', xp: 10 },
+          { type: 'fill-in', question: 'Straight line from x=10 at t=0 to x=40 at t=6 s. Velocity?', answer: '5', tolerance: 0, unit: 'm/s', explanation: 'Slope = (40−10)/6 = 5 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'A horizontal line at x = 5 m on a p-t graph means:', options: ['v = 5 m/s', 'The object is at x=5 and not moving', 'The object is accelerating', 'The object is at the origin'], correctIndex: 1, explanation: 'Horizontal = zero slope = at rest at position 5 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'What is physically impossible on a p-t graph?', options: ['Horizontal line', 'Negative slope', 'Vertical line', 'Curved line'], correctIndex: 2, explanation: 'A vertical line would mean the object is at multiple positions at one instant = infinite velocity = impossible.', xp: 10 },
         ],
-        correctIndex: 1,
-        explanation: 'At rest means the position is not changing, so x stays the same at all times — a horizontal line. A vertical line would mean the object is in multiple positions at the same time, which is impossible!',
-        xp: 10,
       },
       {
-        type: 'multiple-choice',
-        question: 'An object\'s position-time graph is a straight line with a negative slope. This means:',
-        options: [
-          'The object is slowing down',
-          'The object is at rest',
-          'The object moves at constant velocity in the negative direction',
-          'The object is accelerating in the negative direction',
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'multiple-choice', question: 'A p-t graph is a straight line with negative slope. The object:', options: ['Is slowing down', 'Moves at constant velocity in the negative direction', 'Is accelerating', 'Is at rest'], correctIndex: 1, explanation: 'Straight = constant velocity. Negative slope = negative direction.', xp: 15 },
+          { type: 'multiple-choice', question: 'A p-t graph curves upward getting steeper. The object is:', options: ['Constant velocity', 'Speeding up (positive direction)', 'Slowing down', 'At rest'], correctIndex: 1, explanation: 'Steeper curve = increasing slope = increasing velocity = speeding up.', xp: 15 },
+          { type: 'fill-in', question: 'P-t graph: from x=20 at t=2 to x=0 at t=6. Velocity?', answer: '-5', tolerance: 0, unit: 'm/s', explanation: 'Slope = (0−20)/(6−2) = −20/4 = −5 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'A p-t graph starts steep and flattens to horizontal. The object:', options: ['Speeds up', 'Moves at constant v', 'Slows to a stop', 'Reverses direction'], correctIndex: 2, explanation: 'Flattening slope → decreasing velocity → slowing down. Horizontal = stopped.', xp: 15 },
+          { type: 'multiple-choice', question: 'Concave down on a p-t graph means:', options: ['Positive acceleration', 'Negative acceleration', 'Zero acceleration', 'At rest'], correctIndex: 1, explanation: 'Concave down = slope decreasing over time = negative acceleration.', xp: 15 },
+          { type: 'fill-in', question: 'P-t graph: x=10 at t=0, x=50 at t=8 (straight). Average velocity?', answer: '5', tolerance: 0, unit: 'm/s', explanation: '(50−10)/8 = 5 m/s.', xp: 15 },
+          { type: 'multiple-choice', question: 'Two objects have p-t graphs crossing at one point. At that instant:', options: ['They have the same velocity', 'They are at the same position', 'They have the same acceleration', 'One is at rest'], correctIndex: 1, explanation: 'Crossing means same x at same t = same position. Slopes (velocities) may differ.', xp: 15 },
+          { type: 'multiple-choice', question: 'A p-t graph shows a straight line, then horizontal, then straight again. The object:', options: ['Accelerated', 'Moved, stopped, then moved again', 'Was always at rest', 'Changed direction'], correctIndex: 1, explanation: 'Straight = moving. Horizontal = stopped. Straight again = moving again.', xp: 15 },
         ],
-        correctIndex: 2,
-        explanation: 'A straight line means constant velocity (no acceleration). A negative slope means the velocity is negative — the object moves steadily in the negative direction.',
-        xp: 10,
       },
       {
-        type: 'multiple-choice',
-        question: 'An object\'s position-time graph curves upward, getting steeper over time. The object is:',
-        options: [
-          'Moving at constant velocity',
-          'Speeding up in the positive direction',
-          'Slowing down',
-          'At rest then suddenly moving',
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'multiple-choice', question: 'A p-t graph is concave up with positive slope getting steeper. The velocity is:', options: ['Constant and positive', 'Increasing and positive', 'Decreasing', 'Zero'], correctIndex: 1, explanation: 'Steeper positive slope = velocity increasing in positive direction.', xp: 20 },
+          { type: 'multiple-choice', question: 'A p-t graph curves from steep positive slope to zero slope to negative slope. The object:', options: ['Speeds up then slows', 'Slows, stops, reverses', 'Moves at constant v', 'Stops then accelerates'], correctIndex: 1, explanation: 'Slope goes from +, to 0 (stopped), to − (reversed direction).', xp: 20 },
+          { type: 'fill-in', question: 'A p-t graph is a straight line from (0, 0) to (5, 25). Average velocity?', answer: '5', tolerance: 0, unit: 'm/s', explanation: 'Slope = 25/5 = 5 m/s.', xp: 20 },
+          { type: 'multiple-choice', question: 'Two parallel straight lines on a p-t graph mean:', options: ['Same position', 'Same velocity, different positions', 'Same acceleration', 'They will collide'], correctIndex: 1, explanation: 'Parallel = same slope = same velocity. Different y-intercepts = different positions.', xp: 20 },
+          { type: 'multiple-choice', question: 'On a p-t graph, the average velocity between two times equals:', options: ['The slope of the tangent', 'The slope of the secant line connecting those points', 'The area under the curve', 'The curvature'], correctIndex: 1, explanation: 'Average velocity = Δx/Δt = slope of the secant line between the two points.', xp: 20 },
+          { type: 'multiple-choice', question: 'A p-t graph shows a parabola opening upward. At the vertex (minimum), the velocity is:', options: ['Maximum', 'Zero', 'Negative', 'Undefined'], correctIndex: 1, explanation: 'At the vertex of a parabola, the slope (tangent) is horizontal = zero velocity.', xp: 20 },
+          { type: 'fill-in', question: 'P-t graph: x = 2t² (parabola). What is the velocity at t = 3 s? (Hint: slope of tangent = 4t)', answer: '12', tolerance: 0, unit: 'm/s', explanation: 'v = dx/dt = 4t. At t=3: v = 4(3) = 12 m/s.', xp: 20 },
+          { type: 'multiple-choice', question: 'A straight-line p-t graph has slope −3 m/s. The object:', options: ['Accelerates at −3 m/s²', 'Moves at constant −3 m/s', 'Decelerates at 3 m/s²', 'Is at x = −3'], correctIndex: 1, explanation: 'Straight line = constant velocity. Slope = velocity = −3 m/s.', xp: 20 },
         ],
-        correctIndex: 1,
-        explanation: 'A curve that gets steeper means the slope (velocity) is increasing. Since the slope is positive and growing, the object is speeding up in the positive direction — it has positive acceleration.',
-        xp: 10,
       },
     ],
   },
@@ -434,20 +473,12 @@ Key rules:
       {
         type: 'explanation',
         title: 'Another View of Motion',
-        content: `A **velocity-time (v-t) graph** shows how an object's velocity changes over time. It reveals different information than a position-time graph, and the two complement each other.
-
-Master both types of graphs and you'll have a complete picture of any motion.`,
+        content: `A **velocity-time (v-t) graph** shows how an object's velocity changes over time. It reveals different information than a position-time graph, and the two complement each other.\n\nMaster both types of graphs and you'll have a complete picture of any motion.`,
       },
       {
         type: 'concept',
         title: 'Reading Velocity-Time Graphs',
-        content: `On a velocity-time graph:
-- **Slope = acceleration** (Δv/Δt)
-- **Area under the curve = displacement**
-- Horizontal line → constant velocity (zero acceleration)
-- Line sloping up → positive acceleration
-- Line sloping down → negative acceleration
-- Line crossing zero → object changes direction`,
+        content: "On a velocity-time graph:\n- **Slope = acceleration** (Δv/Δt)\n- **Area under the curve = displacement**\n- Horizontal line → constant velocity (zero acceleration)\n- Line sloping up → positive acceleration\n- Line sloping down → negative acceleration\n- Line crossing zero → object changes direction",
         formula: 'slope = a = Δv/Δt\narea = Δx = displacement',
         formulaLabel: 'V-T Graph Relationships',
         misconception: 'The "area under the curve" means the area between the velocity line and the time axis. Area above the axis is positive displacement; area below is negative displacement.',
@@ -455,17 +486,9 @@ Master both types of graphs and you'll have a complete picture of any motion.`,
       {
         type: 'concept',
         title: 'Calculating Displacement from V-T Graphs',
-        content: `To find displacement from a v-t graph, calculate the area between the curve and the time axis:
-- **Rectangle**: area = base × height = Δt × v
-- **Triangle**: area = ½ × base × height = ½ × Δt × Δv
-- **Trapezoid**: area = ½(v₁ + v₂) × Δt
-
-Regions below the time axis count as negative area (negative displacement).`,
+        content: "To find displacement from a v-t graph, calculate the area between the curve and the time axis:\n- **Rectangle**: area = base × height = Δt × v\n- **Triangle**: area = ½ × base × height = ½ × Δt × Δv\n- **Trapezoid**: area = ½(v₁ + v₂) × Δt\n\nRegions below the time axis count as negative area (negative displacement).",
       },
-      {
-        type: 'simulation',
-        id: 'velocity-time-graph',
-      },
+      { type: 'simulation', id: 'velocity-time-graph' },
       {
         type: 'summary',
         points: [
@@ -478,37 +501,60 @@ Regions below the time axis count as negative area (negative displacement).`,
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'An object moves at constant 5 m/s for 8 seconds. Using the v-t graph, what is the displacement? (meters)',
+      answer: '40',
+      tolerance: 0,
+      unit: 'm',
+      explanation: 'Rectangle area on v-t graph = 5 × 8 = 40 m.',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'An object moves at a constant velocity of 5 m/s for 8 seconds. Using the v-t graph, what is the displacement? (in meters)',
-        answer: '40',
-        tolerance: 0,
-        unit: 'm',
-        explanation: 'The v-t graph is a horizontal line at v = 5 m/s. The area (rectangle) = 5 m/s × 8 s = 40 m.',
-        xp: 10,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'On a velocity-time graph, what does a horizontal line at v = 0 represent?',
-        options: [
-          'Constant acceleration',
-          'The object is at rest',
-          'Constant positive velocity',
-          'The object is falling',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'multiple-choice', question: 'Slope of a v-t graph gives:', options: ['Velocity', 'Displacement', 'Acceleration', 'Position'], correctIndex: 2, explanation: 'Slope = Δv/Δt = acceleration.', xp: 10 },
+          { type: 'multiple-choice', question: 'Area under a v-t graph gives:', options: ['Velocity', 'Acceleration', 'Displacement', 'Speed'], correctIndex: 2, explanation: 'Area under v-t = displacement.', xp: 10 },
+          { type: 'multiple-choice', question: 'Horizontal line on a v-t graph means:', options: ['At rest', 'Constant velocity', 'Constant acceleration', 'Changing direction'], correctIndex: 1, explanation: 'Horizontal = constant value = constant velocity (could be any value including zero).', xp: 10 },
+          { type: 'fill-in', question: 'Constant v = 3 m/s for 10 s. Displacement from v-t graph?', answer: '30', tolerance: 0, unit: 'm', explanation: 'Rectangle: 3 × 10 = 30 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'A v-t graph line slopes upward. This means:', options: ['Constant velocity', 'Positive acceleration', 'Object at rest', 'Negative velocity'], correctIndex: 1, explanation: 'Upward slope = velocity increasing = positive acceleration.', xp: 10 },
+          { type: 'fill-in', question: 'Object accelerates from 0 to 8 m/s in 4 s. Displacement (triangle)?', answer: '16', tolerance: 0, unit: 'm', explanation: '½ × 4 × 8 = 16 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'Horizontal line at v=0 on a v-t graph means:', options: ['Moving fast', 'At rest', 'Accelerating', 'Constant speed'], correctIndex: 1, explanation: 'v = 0 constantly = at rest.', xp: 10 },
+          { type: 'fill-in', question: 'Constant v = 6 m/s for 5 s. Displacement?', answer: '30', tolerance: 0, unit: 'm', explanation: '6 × 5 = 30 m.', xp: 10 },
         ],
-        correctIndex: 1,
-        explanation: 'A horizontal line on a v-t graph means constant velocity. At v = 0, the object has zero velocity — it is at rest.',
-        xp: 10,
       },
       {
-        type: 'fill-in',
-        question: 'An object accelerates from 0 to 10 m/s in 4 seconds (constant acceleration). What is the displacement? (in meters)',
-        answer: '20',
-        tolerance: 0,
-        unit: 'm',
-        explanation: 'The v-t graph is a triangle. Area = ½ × base × height = ½ × 4 s × 10 m/s = 20 m. Or use x = ½(v₀ + v)t = ½(0 + 10)(4) = 20 m.',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Object goes from 0 to 10 m/s in 4 s (constant a). Displacement?', answer: '20', tolerance: 0, unit: 'm', explanation: 'Triangle: ½ × 4 × 10 = 20 m.', xp: 15 },
+          { type: 'fill-in', question: 'Object at 4 m/s for 5 s, then accelerates to 10 m/s in 3 s. Total displacement?', answer: '41', tolerance: 0, unit: 'm', explanation: 'Rectangle: 4×5=20. Trapezoid: ½(4+10)×3=21. Total=41 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'When a v-t line crosses the time axis:', options: ['Object stops forever', 'Object changes direction', 'Object has max acceleration', 'Object has zero acceleration'], correctIndex: 1, explanation: 'Crossing v=0 means velocity changes sign = direction reversal.', xp: 15 },
+          { type: 'fill-in', question: 'Object at 6 m/s for 4 s, decelerates to 0 in 6 s. Total displacement?', answer: '42', tolerance: 0, unit: 'm', explanation: 'Rectangle: 6×4=24. Triangle: ½×6×6=18. Total=42 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'V-t graph shows a straight line from (0,0) to (4,8). Acceleration?', options: ['0.5 m/s²', '2 m/s²', '4 m/s²', '8 m/s²'], correctIndex: 1, explanation: 'Slope = 8/4 = 2 m/s².', xp: 15 },
+          { type: 'fill-in', question: 'Object accelerates from 0 to 6 m/s in 6 s. Displacement?', answer: '18', tolerance: 0, unit: 'm', explanation: '½ × 6 × 6 = 18 m.', xp: 15 },
+          { type: 'fill-in', question: 'V-t graph: 0 to 8 m/s in 10 s. Displacement?', answer: '40', tolerance: 0, unit: 'm', explanation: '½ × 10 × 8 = 40 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'A v-t line slopes downward but stays above the axis. The object:', options: ['Speeds up', 'Slows down but still moves forward', 'Reverses', 'Is at rest'], correctIndex: 1, explanation: 'Downward slope = negative acceleration. Above axis = still positive velocity. So it slows down.', xp: 15 },
+        ],
+      },
+      {
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'V-t graph: v=4 for t=0..3, then v increases linearly to 10 at t=6. Total displacement?', answer: '33', tolerance: 0, unit: 'm', explanation: 'Rectangle (t=0..3): 4×3=12. Trapezoid (t=3..6): ½(4+10)×3=21. Total=33 m.', xp: 20 },
+          { type: 'fill-in', question: 'V-t: starts at 10 m/s, linearly drops to −10 m/s over 10 s. Net displacement?', answer: '0', tolerance: 0, unit: 'm', explanation: 'Triangle above axis: ½×5×10=25. Triangle below: ½×5×(−10)=−25. Net=0.', xp: 20 },
+          { type: 'fill-in', question: 'V-t: constant v=8 m/s for 5 s, then constant v=−4 m/s for 5 s. Net displacement?', answer: '20', tolerance: 0, unit: 'm', explanation: 'First: 8×5=40. Second: −4×5=−20. Net=20 m.', xp: 20 },
+          { type: 'multiple-choice', question: 'On a v-t graph, a region below the time axis represents:', options: ['Positive displacement', 'Negative displacement', 'Zero velocity', 'Acceleration'], correctIndex: 1, explanation: 'Area below axis = negative velocity × time = negative displacement (moving backward).', xp: 20 },
+          { type: 'fill-in', question: 'V-t: linearly from 0 to 12 m/s in 6 s. Average velocity?', answer: '6', tolerance: 0, unit: 'm/s', explanation: 'For linear change: avg = (0+12)/2 = 6 m/s.', xp: 20 },
+          { type: 'fill-in', question: 'V-t: v=10 for t=0..4, drops linearly to 0 at t=8. Total displacement?', answer: '60', tolerance: 0, unit: 'm', explanation: 'Rect: 10×4=40. Triangle: ½×4×10=20. Total=60 m.', xp: 20 },
+          { type: 'multiple-choice', question: 'Two v-t graphs have the same area but different shapes. The objects have:', options: ['Same acceleration', 'Same displacement', 'Same velocity', 'Same speed'], correctIndex: 1, explanation: 'Same area under v-t = same displacement, regardless of the shape.', xp: 20 },
+          { type: 'fill-in', question: 'V-t: v=2 m/s for t=0..5, then increases linearly to 14 m/s at t=9. Total displacement?', answer: '42', tolerance: 0, unit: 'm', explanation: 'Rectangle: 2×5=10. Trapezoid: ½(2+14)×4=32. Total=42 m.', xp: 20 },
+        ],
       },
     ],
   },
@@ -520,44 +566,22 @@ Regions below the time axis count as negative area (negative displacement).`,
       {
         type: 'explanation',
         title: 'Gravity Takes Over',
-        content: `Drop a ball and a feather in a vacuum. Surprisingly, they hit the ground at the same time! That's because **free fall** is motion under the influence of gravity alone — no air resistance.
-
-Near Earth's surface, all objects in free fall have the same acceleration regardless of their mass. This is one of the most elegant facts in physics.`,
+        content: `Drop a ball and a feather in a vacuum. Surprisingly, they hit the ground at the same time! That's because **free fall** is motion under the influence of gravity alone — no air resistance.\n\nNear Earth's surface, all objects in free fall have the same acceleration regardless of their mass.`,
       },
       {
         type: 'concept',
         title: 'Acceleration Due to Gravity',
-        content: `In free fall, the acceleration is constant and directed downward:
-
-**g ≈ 9.8 m/s²** (often rounded to 10 m/s² for easier math)
-
-If we define "up" as positive:
-- a = −g = −9.8 m/s² (acceleration is downward)
-- A dropped object: v₀ = 0, a = −9.8 m/s²
-- A ball thrown up: starts with +v₀, slows down, stops, then falls back`,
+        content: "In free fall, the acceleration is constant and directed downward:\n\n**g ≈ 9.8 m/s²** (often rounded to 10 m/s² for easier math)\n\nIf we define \"up\" as positive:\n- a = −g = −9.8 m/s²\n- A dropped object: v₀ = 0, a = −9.8 m/s²\n- A ball thrown up: starts with +v₀, slows down, stops, then falls back",
         formula: 'a = −g = −9.8 m/s²',
         formulaLabel: 'Free-Fall Acceleration (up = positive)',
-        misconception: 'At the peak of its trajectory, a ball thrown upward has v = 0 but a = −9.8 m/s². The acceleration never changes during free fall! The velocity is zero only for an instant.',
+        misconception: 'At the peak of its trajectory, a ball thrown upward has v = 0 but a = −9.8 m/s². The acceleration never changes during free fall!',
       },
       {
         type: 'concept',
         title: 'Free Fall Equations',
-        content: `Free fall uses the same kinematic equations with a = −g:
-
-v = v₀ − gt
-y = v₀t − ½gt²
-v² = v₀² − 2gy
-
-For an object **dropped from rest** (v₀ = 0):
-- v = −gt (speed increases linearly)
-- y = −½gt² (falls farther each second)
-- After 1 s: v = −9.8 m/s, fell 4.9 m
-- After 2 s: v = −19.6 m/s, fell 19.6 m`,
+        content: "Free fall uses the same kinematic equations with a = −g:\n\nv = v₀ − gt\ny = v₀t − ½gt²\nv² = v₀² − 2gy\n\nFor an object **dropped from rest** (v₀ = 0):\n- v = −gt\n- y = −½gt²\n- After 1 s: fell 4.9 m\n- After 2 s: fell 19.6 m",
       },
-      {
-        type: 'simulation',
-        id: 'free-fall',
-      },
+      { type: 'simulation', id: 'free-fall' },
       {
         type: 'summary',
         points: [
@@ -570,40 +594,60 @@ For an object **dropped from rest** (v₀ = 0):
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A ball is dropped from rest. Using g = 10 m/s², what is its speed after 3 seconds? (m/s)',
+      answer: '30',
+      tolerance: 0,
+      unit: 'm/s',
+      explanation: 'v = gt = 10(3) = 30 m/s.',
+      xp: 10,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A ball is dropped from rest. Using g = 10 m/s², what is its speed after 3 seconds? (in m/s)',
-        answer: '30',
-        tolerance: 0,
-        unit: 'm/s',
-        explanation: 'v = v₀ + at = 0 + (10)(3) = 30 m/s. (We use the magnitude since the question asks for speed.)',
-        xp: 10,
-      },
-      {
-        type: 'multiple-choice',
-        question: 'A ball is thrown straight up. At the very top of its path:',
-        options: [
-          'Both velocity and acceleration are zero',
-          'Velocity is zero, acceleration is 9.8 m/s² downward',
-          'Velocity is maximum, acceleration is zero',
-          'Both velocity and acceleration point upward',
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: 'A ball dropped from rest, g=10 m/s². Speed after 2 s?', answer: '20', tolerance: 0, unit: 'm/s', explanation: 'v = 10(2) = 20 m/s.', xp: 10 },
+          { type: 'fill-in', question: 'Object dropped from rest, g=10. Distance fallen in 2 s?', answer: '20', tolerance: 0, unit: 'm', explanation: 'y = ½(10)(4) = 20 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'In free fall, acceleration is:', options: ['Zero', 'Increasing', 'Constant at ~9.8 m/s² downward', 'Depends on mass'], correctIndex: 2, explanation: 'Free fall has constant gravitational acceleration ≈ 9.8 m/s² downward for all objects.', xp: 10 },
+          { type: 'multiple-choice', question: 'A heavier ball and lighter ball dropped together (no air). Which lands first?', options: ['Heavier', 'Lighter', 'Same time', 'Depends on shape'], correctIndex: 2, explanation: 'All objects in free fall have the same acceleration regardless of mass.', xp: 10 },
+          { type: 'fill-in', question: 'Object dropped, g=10. Speed after 5 s?', answer: '50', tolerance: 0, unit: 'm/s', explanation: 'v = 10(5) = 50 m/s.', xp: 10 },
+          { type: 'fill-in', question: 'Object dropped, g=10. Distance in 1 s?', answer: '5', tolerance: 0, unit: 'm', explanation: 'y = ½(10)(1) = 5 m.', xp: 10 },
+          { type: 'multiple-choice', question: 'What does g represent?', options: ['Gravity force', 'Acceleration due to gravity', 'Gravitational energy', 'Weight'], correctIndex: 1, explanation: 'g ≈ 9.8 m/s² is the acceleration due to gravity near Earth\'s surface.', xp: 10 },
+          { type: 'fill-in', question: 'Object dropped, g=10. Distance in 3 s?', answer: '45', tolerance: 0, unit: 'm', explanation: 'y = ½(10)(9) = 45 m.', xp: 10 },
         ],
-        correctIndex: 1,
-        explanation: 'At the peak, the ball momentarily stops (v = 0) before falling back down. But gravity never stops — the acceleration is always 9.8 m/s² downward throughout the entire flight.',
-        xp: 10,
       },
       {
-        type: 'slider-predict',
-        question: 'A ball is dropped from a building. Using g = 10 m/s², how far does it fall in 2 seconds? (in meters)',
-        sliderMin: 0,
-        sliderMax: 40,
-        sliderStep: 1,
-        unit: 'm',
-        answer: 20,
-        tolerance: 1,
-        explanation: 'y = ½gt² = ½(10)(2²) = ½(10)(4) = 20 m',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'multiple-choice', question: 'At the peak of a ball thrown up:', options: ['v=0 and a=0', 'v=0 and a=9.8 m/s² downward', 'v is max and a=0', 'v and a both upward'], correctIndex: 1, explanation: 'At the peak v=0 momentarily, but a=g downward always.', xp: 15 },
+          { type: 'slider-predict', question: 'Ball dropped from rest, g=10. How far does it fall in 2 s?', sliderMin: 0, sliderMax: 40, sliderStep: 1, unit: 'm', answer: 20, tolerance: 1, explanation: 'y = ½(10)(4) = 20 m.', xp: 15 },
+          { type: 'fill-in', question: 'Ball thrown up at 20 m/s, g=10. Time to reach the peak?', answer: '2', tolerance: 0, unit: 's', explanation: '0 = 20 − 10t → t = 2 s.', xp: 15 },
+          { type: 'fill-in', question: 'Ball thrown up at 30 m/s, g=10. Max height?', answer: '45', tolerance: 0, unit: 'm', explanation: '0 = 900 − 20y → y = 45 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'A ball thrown up takes 3 s to reach the peak. Total flight time?', options: ['3 s', '4.5 s', '6 s', '9 s'], correctIndex: 2, explanation: 'By symmetry: time up = time down. Total = 2 × 3 = 6 s.', xp: 15 },
+          { type: 'slider-predict', question: 'Stone dropped, g=10. Distance in 3 s?', sliderMin: 0, sliderMax: 60, sliderStep: 1, unit: 'm', answer: 45, tolerance: 2, explanation: 'y = ½(10)(9) = 45 m.', xp: 15 },
+          { type: 'fill-in', question: 'Ball thrown up at 15 m/s, g=10. Time to peak?', answer: '1.5', tolerance: 0, unit: 's', explanation: '0 = 15 − 10t → t = 1.5 s.', xp: 15 },
+          { type: 'fill-in', question: 'Object dropped, g=10. Speed after 4 s?', answer: '40', tolerance: 0, unit: 'm/s', explanation: 'v = 10(4) = 40 m/s.', xp: 15 },
+        ],
+      },
+      {
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Ball thrown up at 25 m/s, g=10. Max height?', answer: '31.25', tolerance: 0.1, unit: 'm', explanation: '0 = 625 − 20y → y = 31.25 m.', xp: 20 },
+          { type: 'fill-in', question: 'Ball dropped from 80 m, g=10. Time to hit ground?', answer: '4', tolerance: 0, unit: 's', explanation: '80 = ½(10)t² → t² = 16 → t = 4 s.', xp: 20 },
+          { type: 'fill-in', question: 'Ball thrown up at 20 m/s, g=10. Velocity at t=3 s?', answer: '-10', tolerance: 0, unit: 'm/s', explanation: 'v = 20 − 10(3) = −10 m/s (falling back down).', xp: 20 },
+          { type: 'fill-in', question: 'Ball dropped from 125 m, g=10. Time to ground?', answer: '5', tolerance: 0, unit: 's', explanation: '125 = ½(10)t² → t = 5 s.', xp: 20 },
+          { type: 'multiple-choice', question: 'Ball thrown up at 20 m/s. Speed when it returns to launch height?', options: ['0 m/s', '10 m/s', '20 m/s', '40 m/s'], correctIndex: 2, explanation: 'By symmetry, speed at return = launch speed = 20 m/s (but velocity is −20 m/s).', xp: 20 },
+          { type: 'fill-in', question: 'Ball thrown up at 40 m/s, g=10. Total flight time?', answer: '8', tolerance: 0, unit: 's', explanation: 'Time up: 0=40−10t→t=4. Total=2×4=8 s.', xp: 20 },
+          { type: 'fill-in', question: 'Ball thrown down at 5 m/s from 60 m, g=10. Time to ground?', answer: '3', tolerance: 0, unit: 's', explanation: '60 = 5t + ½(10)t² → 5t²+5t−60=0 → t²+t−12=0 → (t+4)(t−3)=0 → t=3 s.', xp: 20 },
+          { type: 'fill-in', question: 'Ball thrown up at 50 m/s, g=10. Height at t=3 s?', answer: '105', tolerance: 0, unit: 'm', explanation: 'y = 50(3) − ½(10)(9) = 150 − 45 = 105 m.', xp: 20 },
+        ],
       },
     ],
   },
@@ -615,23 +659,12 @@ For an object **dropped from rest** (v₀ = 0):
       {
         type: 'explanation',
         title: 'Motion in Two Dimensions',
-        content: `What happens when you throw a ball at an angle? It moves both horizontally and vertically at the same time, tracing a beautiful curved path called a **parabola**.
-
-The key insight: **horizontal and vertical motions are independent!** Gravity only affects the vertical motion. The horizontal velocity stays constant (no air resistance).`,
+        content: "What happens when you throw a ball at an angle? It moves both horizontally and vertically at the same time, tracing a beautiful curved path called a **parabola**.\n\nThe key insight: **horizontal and vertical motions are independent!** Gravity only affects the vertical motion. The horizontal velocity stays constant (no air resistance).",
       },
       {
         type: 'concept',
         title: 'Breaking It Down',
-        content: `For a projectile launched with speed v₀ at angle θ:
-
-**Horizontal (x):** No acceleration
-- v₀ₓ = v₀ cos θ (constant throughout!)
-- x = v₀ₓ · t
-
-**Vertical (y):** Free fall (a = −g)
-- v₀ᵧ = v₀ sin θ
-- vᵧ = v₀ᵧ − gt
-- y = v₀ᵧt − ½gt²`,
+        content: "For a projectile launched with speed v₀ at angle θ:\n\n**Horizontal (x):** No acceleration\n- v₀ₓ = v₀ cos θ (constant throughout!)\n- x = v₀ₓ · t\n\n**Vertical (y):** Free fall (a = −g)\n- v₀ᵧ = v₀ sin θ\n- vᵧ = v₀ᵧ − gt\n- y = v₀ᵧt − ½gt²",
         formula: 'v₀ₓ = v₀ cos θ     v₀ᵧ = v₀ sin θ\nx = v₀ₓ · t           y = v₀ᵧt − ½gt²',
         formulaLabel: 'Projectile Motion Components',
         misconception: 'The horizontal velocity does NOT change during projectile motion (ignoring air resistance). Only the vertical velocity changes due to gravity.',
@@ -639,18 +672,9 @@ The key insight: **horizontal and vertical motions are independent!** Gravity on
       {
         type: 'concept',
         title: 'Range and Maximum Height',
-        content: `For a projectile launched from and landing at the same height:
-
-**Time of flight:** T = 2v₀ sin θ / g
-**Maximum height:** H = v₀² sin² θ / (2g)
-**Range:** R = v₀² sin(2θ) / g
-
-Fun fact: 45° gives maximum range! And complementary angles (like 30° and 60°) give the same range.`,
+        content: "For a projectile launched from and landing at the same height:\n\n**Time of flight:** T = 2v₀ sin θ / g\n**Maximum height:** H = v₀² sin² θ / (2g)\n**Range:** R = v₀² sin(2θ) / g\n\nFun fact: 45° gives maximum range! And complementary angles (like 30° and 60°) give the same range.",
       },
-      {
-        type: 'simulation',
-        id: 'projectile-motion',
-      },
+      { type: 'simulation', id: 'projectile-motion' },
       {
         type: 'summary',
         points: [
@@ -663,41 +687,60 @@ Fun fact: 45° gives maximum range! And complementary angles (like 30° and 60°
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A ball launched horizontally at 10 m/s from a 20 m cliff. Using g=10 m/s², time to ground?',
+      answer: '2',
+      tolerance: 0,
+      unit: 's',
+      explanation: 'Horizontal velocity does not affect fall time. y=½gt²: 20=½(10)t² → t=2 s.',
+      xp: 15,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A ball is launched horizontally at 10 m/s from a 20 m tall cliff. Using g = 10 m/s², how long until it hits the ground? (in seconds)',
-        answer: '2',
-        tolerance: 0,
-        unit: 's',
-        explanation: 'The horizontal velocity doesn\'t affect fall time. Using y = ½gt²: 20 = ½(10)t² → t² = 4 → t = 2 s.',
-        xp: 15,
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'multiple-choice', question: 'In projectile motion, horizontal velocity:', options: ['Increases', 'Decreases', 'Stays constant', 'Is zero'], correctIndex: 2, explanation: 'No horizontal acceleration → constant horizontal velocity.', xp: 10 },
+          { type: 'multiple-choice', question: 'What angle gives maximum range?', options: ['30°', '45°', '60°', '90°'], correctIndex: 1, explanation: '45° maximizes sin(2θ) = sin(90°) = 1.', xp: 10 },
+          { type: 'multiple-choice', question: 'At the peak of projectile motion, which is zero?', options: ['Horizontal velocity', 'Vertical velocity', 'Both velocities', 'Acceleration'], correctIndex: 1, explanation: 'At peak, vᵧ = 0 but vₓ is constant and a = g downward.', xp: 10 },
+          { type: 'multiple-choice', question: 'A ball thrown horizontally from a cliff. Its horizontal speed:', options: ['Increases', 'Decreases', 'Stays the same', 'Becomes zero on landing'], correctIndex: 2, explanation: 'No horizontal force → horizontal speed is constant.', xp: 10 },
+          { type: 'multiple-choice', question: 'Gravity affects which component of projectile motion?', options: ['Horizontal only', 'Vertical only', 'Both equally', 'Neither'], correctIndex: 1, explanation: 'Gravity acts downward, only changing the vertical velocity.', xp: 10 },
+          { type: 'multiple-choice', question: 'Complementary angles (e.g. 30° and 60°) give:', options: ['Different ranges', 'Same range', 'Same max height', 'Same time of flight'], correctIndex: 1, explanation: 'sin(2×30°) = sin(2×60°), so same range.', xp: 10 },
+          { type: 'multiple-choice', question: 'The trajectory of a projectile is a:', options: ['Straight line', 'Circle', 'Parabola', 'Hyperbola'], correctIndex: 2, explanation: 'Constant vₓ + constant vertical acceleration → parabolic path.', xp: 10 },
+          { type: 'multiple-choice', question: 'If you double the horizontal launch speed (horizontal launch from cliff), the fall time:', options: ['Doubles', 'Halves', 'Stays the same', 'Quadruples'], correctIndex: 2, explanation: 'Fall time depends only on height and g, not horizontal speed.', xp: 10 },
+        ],
       },
       {
-        type: 'multiple-choice',
-        question: 'Two balls are launched from the same height at the same speed — one at 30° and one at 60°. Which travels farther horizontally?',
-        options: [
-          'The ball at 30°',
-          'The ball at 60°',
-          'They travel the same distance',
-          'Cannot determine without more info',
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Ball launched horizontally at 15 m/s from 45 m cliff, g=10. Horizontal distance?', answer: '45', tolerance: 0, unit: 'm', explanation: 'Fall time: 45=½(10)t²→t=3. x=15×3=45 m.', xp: 15 },
+          { type: 'fill-in', question: 'Stone thrown horizontally at 8 m/s from 5 m, g=10. Horizontal distance?', answer: '8', tolerance: 0, unit: 'm', explanation: 't: 5=½(10)t²→t=1. x=8×1=8 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'Balls at 30° and 60° (same speed). Which has greater max height?', options: ['30°', '60°', 'Same height', 'Cannot tell'], correctIndex: 1, explanation: '60° has larger sin θ → larger v₀ᵧ → greater max height.', xp: 15 },
+          { type: 'fill-in', question: 'Ball kicked horizontally at 20 m/s from 80 m, g=10. Horizontal distance?', answer: '80', tolerance: 0, unit: 'm', explanation: 't: 80=5t²→t=4. x=20×4=80 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'A projectile at 30° vs 60° (same speed, same height launch). Which is in the air longer?', options: ['30°', '60°', 'Same', 'Cannot tell'], correctIndex: 1, explanation: '60° has larger v₀ᵧ → more time to decelerate and return → longer flight.', xp: 15 },
+          { type: 'fill-in', question: 'Ball launched horizontally at 12 m/s from 20 m, g=10. Horizontal distance?', answer: '24', tolerance: 0, unit: 'm', explanation: 't: 20=5t²→t=2. x=12×2=24 m.', xp: 15 },
+          { type: 'multiple-choice', question: 'During projectile motion, the speed of the object:', options: ['Is constant', 'Increases then decreases', 'First decreases, then increases (if launched at angle)', 'Is always increasing'], correctIndex: 2, explanation: 'Launched upward: speed decreases going up (vᵧ shrinks), minimum at peak, then increases coming down.', xp: 15 },
+          { type: 'fill-in', question: 'Ball launched horizontally at 25 m/s from 45 m, g=10. Horizontal distance?', answer: '75', tolerance: 0, unit: 'm', explanation: 't: 45=5t²→t=3. x=25×3=75 m.', xp: 15 },
         ],
-        correctIndex: 2,
-        explanation: 'Complementary angles (30° + 60° = 90°) give the same range when launched from the same height at the same speed. This is because sin(2×30°) = sin(60°) = sin(2×60°) = sin(120°).',
-        xp: 10,
       },
       {
-        type: 'multiple-choice',
-        question: 'During projectile motion (no air resistance), the horizontal component of velocity:',
-        options: [
-          'Increases over time',
-          'Decreases over time',
-          'Remains constant',
-          'Is always zero',
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Projectile at 45° with v₀=20 m/s, g=10. Range?', answer: '40', tolerance: 0, unit: 'm', explanation: 'R = v₀²sin(90°)/g = 400/10 = 40 m.', xp: 20 },
+          { type: 'fill-in', question: 'Projectile at 45° with v₀=30 m/s, g=10. Range?', answer: '90', tolerance: 0, unit: 'm', explanation: 'R = 900/10 = 90 m.', xp: 20 },
+          { type: 'fill-in', question: 'Projectile at 30° with v₀=20 m/s, g=10. Max height? (round to 1 decimal)', answer: '5', tolerance: 0, unit: 'm', explanation: 'H = v₀²sin²(30°)/(2g) = 400(0.25)/20 = 5 m.', xp: 20 },
+          { type: 'fill-in', question: 'Ball launched at 45° with v₀=40 m/s, g=10. Time of flight?', answer: '5.66', tolerance: 0.1, unit: 's', explanation: 'T = 2v₀sin(45°)/g = 2(40)(0.707)/10 ≈ 5.66 s.', xp: 20 },
+          { type: 'fill-in', question: 'Horizontal launch at 10 m/s from 125 m, g=10. Horizontal distance?', answer: '50', tolerance: 0, unit: 'm', explanation: 't: 125=5t²→t=5. x=10×5=50 m.', xp: 20 },
+          { type: 'multiple-choice', question: 'To hit a target at the same height but farther, you should:', options: ['Increase angle above 45°', 'Launch at 45° with more speed', 'Decrease angle below 45°', 'Launch vertically'], correctIndex: 1, explanation: '45° already gives max range for a given speed. To go farther, increase speed.', xp: 20 },
+          { type: 'fill-in', question: 'Projectile at 45° with v₀=10 m/s, g=10. Range?', answer: '10', tolerance: 0, unit: 'm', explanation: 'R = 100(1)/10 = 10 m.', xp: 20 },
+          { type: 'fill-in', question: 'A ball at 60° with v₀=20 m/s, g=10. Max height?', answer: '15', tolerance: 0, unit: 'm', explanation: 'H = 400(sin²60°)/20 = 400(0.75)/20 = 15 m.', xp: 20 },
         ],
-        correctIndex: 2,
-        explanation: 'There is no horizontal acceleration in projectile motion (gravity acts only vertically), so the horizontal velocity component remains constant throughout the flight.',
-        xp: 10,
       },
     ],
   },
@@ -709,55 +752,21 @@ Fun fact: 45° gives maximum range! And complementary angles (like 30° and 60°
       {
         type: 'explanation',
         title: 'Kinematics Review',
-        content: `Congratulations on making it through Unit 1! Let's review the key concepts and put them all together with some challenge problems.
-
-This unit covered:
-- Position, displacement, and reference frames
-- Velocity (average and instantaneous)
-- Acceleration
-- The four kinematic equations
-- Position-time and velocity-time graphs
-- Free fall and projectile motion`,
+        content: "Congratulations on making it through Unit 1! Let's review the key concepts and put them all together with some challenge problems.\n\nThis unit covered:\n- Position, displacement, and reference frames\n- Velocity (average and instantaneous)\n- Acceleration\n- The four kinematic equations\n- Position-time and velocity-time graphs\n- Free fall and projectile motion",
       },
       {
         type: 'concept',
         title: 'Master Formula Sheet',
-        content: `**Definitions:**
-- Displacement: Δx = x_f − x_i
-- Velocity: v = Δx/Δt
-- Acceleration: a = Δv/Δt
-
-**Kinematic Equations (constant a):**
-1. v = v₀ + at
-2. x = v₀t + ½at²
-3. v² = v₀² + 2ax
-4. x = ½(v₀ + v)t
-
-**Free Fall:** a = −g = −9.8 m/s²
-
-**Projectile Motion:**
-- vₓ = v₀ cos θ (constant)
-- vᵧ = v₀ sin θ − gt`,
+        content: "**Definitions:**\n- Displacement: Δx = x_f − x_i\n- Velocity: v = Δx/Δt\n- Acceleration: a = Δv/Δt\n\n**Kinematic Equations (constant a):**\n1. v = v₀ + at\n2. x = v₀t + ½at²\n3. v² = v₀² + 2ax\n4. x = ½(v₀ + v)t\n\n**Free Fall:** a = −g = −9.8 m/s²\n\n**Projectile Motion:**\n- vₓ = v₀ cos θ (constant)\n- vᵧ = v₀ sin θ − gt",
         formula: 'v = v₀ + at\nx = v₀t + ½at²\nv² = v₀² + 2ax',
         formulaLabel: 'Kinematic Equations Summary',
       },
       {
         type: 'concept',
         title: 'Graph Relationships',
-        content: `**Position-time graph:**
-- Slope → velocity
-- Curvature → acceleration
-
-**Velocity-time graph:**
-- Slope → acceleration
-- Area under curve → displacement
-
-Remember: these graphs show relationships, not physical paths!`,
+        content: "**Position-time graph:**\n- Slope → velocity\n- Curvature → acceleration\n\n**Velocity-time graph:**\n- Slope → acceleration\n- Area under curve → displacement\n\nRemember: these graphs show relationships, not physical paths!",
       },
-      {
-        type: 'simulation',
-        id: 'review-challenge',
-      },
+      { type: 'simulation', id: 'review-challenge' },
       {
         type: 'summary',
         points: [
@@ -770,32 +779,60 @@ Remember: these graphs show relationships, not physical paths!`,
         ],
       },
     ],
-    problems: [
+    instructionalProblem: {
+      type: 'fill-in',
+      question: 'A car accelerates from 10 m/s to 30 m/s over 200 m. What is the acceleration?',
+      answer: '2',
+      tolerance: 0,
+      unit: 'm/s²',
+      explanation: 'v² = v₀² + 2ax: 900 = 100 + 400a → a = 2 m/s².',
+      xp: 20,
+    },
+    practiceSets: [
       {
-        type: 'fill-in',
-        question: 'A car accelerates from 10 m/s to 30 m/s over a distance of 200 m. What is the acceleration in m/s²?',
-        answer: '2',
-        tolerance: 0,
-        unit: 'm/s²',
-        explanation: 'Using v² = v₀² + 2ax: 30² = 10² + 2a(200) → 900 = 100 + 400a → 800 = 400a → a = 2 m/s².',
-        xp: 20,
+        title: 'Fundamentals',
+        difficulty: 'easy',
+        required: true,
+        pool: [
+          { type: 'fill-in', question: 'Object moves from x=5 to x=−3. Displacement?', answer: '-8', tolerance: 0, unit: 'm', explanation: 'Δx = −3 − 5 = −8 m.', xp: 10 },
+          { type: 'fill-in', question: 'A car travels 200 m in 8 s. Average velocity?', answer: '25', tolerance: 0, unit: 'm/s', explanation: 'v = 200/8 = 25 m/s.', xp: 10 },
+          { type: 'fill-in', question: 'Object from 0 to 12 m/s in 4 s. Acceleration?', answer: '3', tolerance: 0, unit: 'm/s²', explanation: 'a = 12/4 = 3 m/s².', xp: 10 },
+          { type: 'multiple-choice', question: 'Which is a vector?', options: ['Speed', 'Mass', 'Velocity', 'Distance'], correctIndex: 2, explanation: 'Velocity has magnitude and direction.', xp: 10 },
+          { type: 'fill-in', question: 'Object dropped, g=10. Distance in 2 s?', answer: '20', tolerance: 0, unit: 'm', explanation: 'y = ½(10)(4) = 20 m.', xp: 10 },
+          { type: 'fill-in', question: 'Car from rest at 3 m/s² for 4 s. Velocity?', answer: '12', tolerance: 0, unit: 'm/s', explanation: 'v = 3(4) = 12 m/s.', xp: 10 },
+          { type: 'multiple-choice', question: 'Slope of p-t graph =', options: ['Acceleration', 'Velocity', 'Displacement', 'Force'], correctIndex: 1, explanation: 'Slope of position-time = velocity.', xp: 10 },
+          { type: 'multiple-choice', question: 'Area under v-t graph =', options: ['Velocity', 'Acceleration', 'Displacement', 'Speed'], correctIndex: 2, explanation: 'Area under velocity-time = displacement.', xp: 10 },
+        ],
       },
       {
-        type: 'multiple-choice',
-        question: 'A ball is thrown straight up at 20 m/s. Using g = 10 m/s², what is the maximum height?',
-        options: ['10 m', '20 m', '40 m', '200 m'],
-        correctIndex: 1,
-        explanation: 'At max height, v = 0. Using v² = v₀² − 2gy: 0 = 20² − 2(10)y → 0 = 400 − 20y → y = 20 m.',
-        xp: 15,
+        title: 'Application',
+        difficulty: 'medium',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Ball thrown up at 20 m/s, g=10. Max height?', answer: '20', tolerance: 0, unit: 'm', explanation: '0 = 400 − 20y → y = 20 m.', xp: 15 },
+          { type: 'fill-in', question: 'Car at 20 m/s brakes at −4 m/s². Stopping distance?', answer: '50', tolerance: 0, unit: 'm', explanation: '0 = 400 − 8x → x = 50 m.', xp: 15 },
+          { type: 'fill-in', question: 'Projectile at 45°, v₀=20, g=10. Range?', answer: '40', tolerance: 0, unit: 'm', explanation: 'R = 400/10 = 40 m.', xp: 15 },
+          { type: 'fill-in', question: 'Car from rest covers 100 m in 10 s. Acceleration?', answer: '2', tolerance: 0, unit: 'm/s²', explanation: '100 = ½a(100) → a = 2 m/s².', xp: 15 },
+          { type: 'fill-in', question: 'Ball dropped from 45 m, g=10. Time to ground?', answer: '3', tolerance: 0, unit: 's', explanation: '45 = 5t² → t = 3 s.', xp: 15 },
+          { type: 'fill-in', question: 'V-t graph: 0 to 10 m/s in 5 s. Displacement?', answer: '25', tolerance: 0, unit: 'm', explanation: '½ × 5 × 10 = 25 m.', xp: 15 },
+          { type: 'fill-in', question: 'Car at 15 m/s accelerates at 2 m/s² for 5 s. Final velocity?', answer: '25', tolerance: 0, unit: 'm/s', explanation: 'v = 15 + 2(5) = 25 m/s.', xp: 15 },
+          { type: 'fill-in', question: 'Ball thrown up at 30 m/s, g=10. Time to peak?', answer: '3', tolerance: 0, unit: 's', explanation: '0 = 30 − 10t → t = 3 s.', xp: 15 },
+        ],
       },
       {
-        type: 'fill-in',
-        question: 'A projectile is launched at 45° with v₀ = 20 m/s. Using g = 10 m/s², what is the range? (in meters)',
-        answer: '40',
-        tolerance: 0,
-        unit: 'm',
-        explanation: 'R = v₀²sin(2θ)/g = (20²)(sin 90°)/10 = 400(1)/10 = 40 m.',
-        xp: 20,
+        title: 'Challenge',
+        difficulty: 'hard',
+        required: false,
+        pool: [
+          { type: 'fill-in', question: 'Car from rest, a=2 m/s². Distance in first 5 s?', answer: '25', tolerance: 0, unit: 'm', explanation: 'x = ½(2)(25) = 25 m.', xp: 20 },
+          { type: 'fill-in', question: 'Object decelerates from 16 m/s to rest over 32 m. Acceleration magnitude?', answer: '4', tolerance: 0, unit: 'm/s²', explanation: '0 = 256 − 64a → a = 4 m/s².', xp: 20 },
+          { type: 'fill-in', question: 'Ball dropped from 80 m, g=10. Time to ground?', answer: '4', tolerance: 0, unit: 's', explanation: '80 = 5t² → t = 4 s.', xp: 20 },
+          { type: 'fill-in', question: 'Car starts at rest, covers 72 m reaching 24 m/s. Acceleration?', answer: '4', tolerance: 0, unit: 'm/s²', explanation: '576 = 0 + 2a(72) → a = 4 m/s².', xp: 20 },
+          { type: 'fill-in', question: 'Horizontal launch at 10 m/s from 125 m, g=10. Horizontal distance?', answer: '50', tolerance: 0, unit: 'm', explanation: 't: 125=5t²→t=5. x=10×5=50 m.', xp: 20 },
+          { type: 'fill-in', question: 'Ball thrown up at 40 m/s, g=10. Total flight time?', answer: '8', tolerance: 0, unit: 's', explanation: 'Peak at t=4. Total=8 s.', xp: 20 },
+          { type: 'fill-in', question: 'Car at 30 m/s brakes at −5 m/s². Stopping distance?', answer: '90', tolerance: 0, unit: 'm', explanation: '0 = 900 − 10x → x = 90 m.', xp: 20 },
+          { type: 'fill-in', question: 'Projectile at 45°, v₀=30, g=10. Range?', answer: '90', tolerance: 0, unit: 'm', explanation: 'R = 900/10 = 90 m.', xp: 20 },
+        ],
       },
     ],
   },
