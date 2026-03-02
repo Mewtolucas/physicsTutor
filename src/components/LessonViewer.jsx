@@ -1,14 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { units } from '../data/units';
 import { kinematicsLessons } from '../data/kinematicsLessons';
 import Problem from './Problem';
 import SimulationRenderer from './SimulationRenderer';
+import AIChat from './AIChat';
 import './LessonViewer.css';
 
 const lessonDataMap = {
   1: kinematicsLessons,
 };
+
+function shuffleAndPick(arr, count) {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
 
 export default function LessonViewer({ addXP, completeLesson, saveProblemResult }) {
   const { unitId, lessonId } = useParams();
@@ -23,9 +29,17 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
   const [step, setStep] = useState(0);
   const [problemsDone, setProblemsDone] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
-  const [totalProblems, setTotalProblems] = useState(0);
   const [showComplete, setShowComplete] = useState(false);
   const [xpEarned, setXpEarned] = useState(0);
+  const [currentSet, setCurrentSet] = useState(-1); // -1 = instructional, 0/1/2 = practice sets
+  const [sessionKey, setSessionKey] = useState(0);
+
+  // Randomly select 5 problems from each practice set pool
+  const selectedProblems = useMemo(() => {
+    if (!lessonContent) return [];
+    return lessonContent.practiceSets.map((set) => shuffleAndPick(set.pool, 5));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uid, lid, sessionKey]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,24 +48,37 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
     setCorrectCount(0);
     setShowComplete(false);
     setXpEarned(0);
+    setCurrentSet(-1);
+    setSessionKey((k) => k + 1);
   }, [unitId, lessonId]);
-
-  useEffect(() => {
-    if (lessonContent) {
-      setTotalProblems(lessonContent.problems.length);
-    }
-  }, [lessonContent]);
 
   if (!unit || !lessonMeta || !lessonContent) {
     return <div className="not-found">Lesson not found</div>;
   }
 
-  const allSteps = [
-    ...lessonContent.sections.map((s, i) => ({ type: 'section', data: s, index: i })),
-    ...lessonContent.problems.map((p, i) => ({ type: 'problem', data: p, index: i })),
-    { type: 'complete' },
-  ];
+  // Build steps: sections → instructional problem → practice set intros + problems → complete
+  const allSteps = [];
 
+  // Instructional sections
+  lessonContent.sections.forEach((s, i) => {
+    allSteps.push({ type: 'section', data: s, index: i });
+  });
+
+  // Instructional problem
+  allSteps.push({ type: 'instructional', data: lessonContent.instructionalProblem });
+
+  // Practice sets
+  lessonContent.practiceSets.forEach((set, setIdx) => {
+    allSteps.push({ type: 'set-intro', setIndex: setIdx, data: set });
+    const problems = selectedProblems[setIdx] || [];
+    problems.forEach((p, pIdx) => {
+      allSteps.push({ type: 'practice', data: p, setIndex: setIdx, problemIndex: pIdx });
+    });
+  });
+
+  allSteps.push({ type: 'complete' });
+
+  const totalProblems = 1 + selectedProblems.reduce((sum, set) => sum + set.length, 0);
   const totalSteps = allSteps.length;
   const currentStep = allSteps[step];
   const progressPercent = ((step + 1) / totalSteps) * 100;
@@ -70,8 +97,21 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
     }
   };
 
+  const handleSkipSet = () => {
+    // Find the next set-intro or complete step
+    for (let i = step + 1; i < totalSteps; i++) {
+      if (allSteps[i].type === 'set-intro' || allSteps[i].type === 'complete') {
+        setStep(i);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+    }
+    // Fallback: go to last step
+    setStep(totalSteps - 1);
+  };
+
   const handleProblemComplete = (correct, xp) => {
-    setProblemsDone(problemsDone + 1);
+    setProblemsDone((d) => d + 1);
     if (correct) {
       setCorrectCount((c) => c + 1);
       setXpEarned((x) => x + xp);
@@ -133,7 +173,7 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
             )}
             {section.misconception && (
               <div className="misconception-box">
-                <div className="misconception-label">⚠️ Common Misconception</div>
+                <div className="misconception-label">Common Misconception</div>
                 <p dangerouslySetInnerHTML={{ __html: formatText(section.misconception) }} />
               </div>
             )}
@@ -163,7 +203,7 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
       case 'summary':
         return (
           <div className="section-summary">
-            <h3 className="summary-title">📋 Lesson Summary</h3>
+            <h3 className="summary-title">Lesson Summary</h3>
             <ul className="summary-list">
               {section.points.map((point, i) => (
                 <li key={i} dangerouslySetInnerHTML={{ __html: formatText(point) }} />
@@ -174,6 +214,24 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
 
       default:
         return null;
+    }
+  };
+
+  const getDifficultyLabel = (difficulty) => {
+    switch (difficulty) {
+      case 'easy': return 'Beginner';
+      case 'medium': return 'Intermediate';
+      case 'hard': return 'Advanced';
+      default: return difficulty;
+    }
+  };
+
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty) {
+      case 'easy': return '#059669';
+      case 'medium': return '#D97706';
+      case 'hard': return '#DC2626';
+      default: return '#6366F1';
     }
   };
 
@@ -189,7 +247,7 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
 
         <div className="complete-stats">
           <div className="complete-stat">
-            <span className="complete-stat-value">{correctCount}/{totalProblems}</span>
+            <span className="complete-stat-value">{correctCount}/{problemsDone}</span>
             <span className="complete-stat-label">Correct</span>
           </div>
           <div className="complete-stat">
@@ -218,6 +276,8 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
             setCorrectCount(0);
             setShowComplete(false);
             setXpEarned(0);
+            setCurrentSet(-1);
+            setSessionKey((k) => k + 1);
           }}>
             Retry Lesson
           </button>
@@ -246,25 +306,78 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
 
       <div className="lesson-step-content">
         {currentStep.type === 'section' && renderSection(currentStep.data)}
-        {currentStep.type === 'problem' && (
+
+        {currentStep.type === 'instructional' && (
           <div className="problem-wrapper">
-            <div className="problem-counter">
-              Problem {currentStep.index + 1} of {totalProblems}
+            <div className="problem-label instructional-label">
+              Guided Problem
             </div>
             <Problem
-              key={`${uid}-${lid}-${currentStep.index}`}
+              key={`${uid}-${lid}-instructional-${sessionKey}`}
               problem={currentStep.data}
               onComplete={handleProblemComplete}
               onNext={handleNext}
             />
           </div>
         )}
+
+        {currentStep.type === 'set-intro' && (
+          <div className="set-intro">
+            <div
+              className="set-difficulty-badge"
+              style={{ background: getDifficultyColor(currentStep.data.difficulty) }}
+            >
+              {getDifficultyLabel(currentStep.data.difficulty)}
+            </div>
+            <h2 className="set-intro-title">
+              Practice Set {currentStep.setIndex + 1}: {currentStep.data.title}
+            </h2>
+            <p className="set-intro-desc">
+              {currentStep.data.required
+                ? '5 randomly selected problems. Complete this set to finish the lesson.'
+                : '5 randomly selected problems. This set is optional — skip if you\'re confident.'}
+            </p>
+            <div className="set-intro-actions">
+              <button className="btn-primary" onClick={handleNext}>
+                Start Set →
+              </button>
+              {!currentStep.data.required && (
+                <button className="btn-secondary" onClick={handleSkipSet}>
+                  Skip This Set →
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {currentStep.type === 'practice' && (
+          <div className="problem-wrapper">
+            <div className="problem-label-row">
+              <span
+                className="set-difficulty-badge set-badge-small"
+                style={{ background: getDifficultyColor(lessonContent.practiceSets[currentStep.setIndex].difficulty) }}
+              >
+                Set {currentStep.setIndex + 1}
+              </span>
+              <span className="problem-counter">
+                Problem {currentStep.problemIndex + 1} of 5
+              </span>
+            </div>
+            <Problem
+              key={`${uid}-${lid}-set${currentStep.setIndex}-p${currentStep.problemIndex}-${sessionKey}`}
+              problem={currentStep.data}
+              onComplete={handleProblemComplete}
+              onNext={handleNext}
+            />
+          </div>
+        )}
+
         {currentStep.type === 'complete' && (
           <div className="lesson-finish-prompt">
             <h2>Ready to finish?</h2>
             <p>You've completed all sections and problems in this lesson.</p>
             <button className="btn-primary btn-large" onClick={handleFinishLesson}>
-              Complete Lesson ✓
+              Complete Lesson
             </button>
           </div>
         )}
@@ -278,12 +391,14 @@ export default function LessonViewer({ addXP, completeLesson, saveProblemResult 
         >
           ← Previous
         </button>
-        {currentStep.type !== 'problem' && currentStep.type !== 'complete' && (
+        {currentStep.type === 'section' && (
           <button className="btn-primary" onClick={handleNext}>
             Continue →
           </button>
         )}
       </div>
+
+      <AIChat lessonTitle={lessonMeta.title} lessonContent={lessonContent} />
     </div>
   );
 }
